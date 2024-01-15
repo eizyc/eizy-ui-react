@@ -1,0 +1,202 @@
+@use "sass:math";
+$prefix:'eizy-ui';
+
+
+// Neutrals
+$white:    #fff !default;
+$neutral-100: #f5f5f5 !default;
+$neutral-200: #f0f0f0!default;
+$neutral-300: #d9d9d9 !default;
+$neutral-400: #bfbfbf !default;
+$neutral-500: #8c8c8c !default;
+$neutral-600: #595959 !default;
+$neutral-700: #434343!default;
+$neutral-800: #262626 !default;
+$neutral-900: #1f1f1f !default;
+$black:    #000 !default;
+
+
+// Status Colors
+$success-100: #529E66!default;
+$success-200: #367B48!default;
+$success-300: #276738!default;
+$warning-100: #E1C542!default;
+$warning-200: #CAB23F!default;
+$warning-300: #B49E35!default;
+$error-100: #D0454C!default;
+$error-200: #B54248!default;
+$error-300: #95353A!default;
+
+
+// Colors
+$primary-100: #84CADB!default;
+$primary-200: #5BB4CF!default;
+$primary-300: #369CC2!default;
+$primary-400: #24789C!default;
+$primary-500: #155575!default;
+$primary: $primary-300!default;
+$secondary-100:#E89094!default;
+$secondary-200:#DB656F!default;
+$secondary-300: #CF3E50!default;
+$secondary-400:#A82A3D!default;
+$secondary-500:#821A2D!default;
+$secondary: $secondary-300!default;
+
+// Font Family
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+
+// Font color
+$font-color: #181818!default;
+$font-color-light: $white!default;
+
+
+// Font size
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-root:              null !default;
+
+// Font Weight
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+$font-weight-base:            $font-weight-normal !default;
+
+// Line Height
+$line-height-base:            1.5 !default;
+$line-height-lg:              2 !default;
+$line-height-sm:              1.25 !default;
+
+// Typescale
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+// Link
+$link-color:                              $primary !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+
+// Body
+$body-bg:                   $white !default;
+$body-color:                $font-color !default;
+$body-text-align:           null !default;
+
+// Spacing
+$spacer: 1rem !default;
+
+// Hr 
+$hr-margin-y: $spacer !default;
+$hr-color: inherit !default;
+$hr-height: 1px !default;
+$hr-opacity: .25 !default;
+
+// Paragraphs
+$paragraph-margin-bottom:   1rem !default;
+
+// Headings
+$headings-margin-bottom:      math.div($spacer, 2) !default;
+$headings-font-family:        null !default;
+$headings-font-style:         null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              null !default;
+
+// Border
+$border-width:1px !default;
+$border-color:$neutral-300 !default;
+
+$border-radius:.25rem !default;
+$border-radius-lg:.3rem !default;
+$border-radius-sm:.2rem !default;
+
+// Box Shadow
+$box-shadow-sm: 0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow: 0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
+
+// Code
+$code-font-size:                    $font-size-sm !default;
+$code-color:                        $secondary !default;
+$pre-color:                         null !default;
+
+// Knobs
+$enable-pointer-cursor-for-buttons: true !default;
+
+
+
+// Special Markers
+
+// dt
+$dt-font-weight: $font-weight-bold !default;
+
+// small
+$small-font-size: .875em !default;
+
+// sup, sub
+$sub-sup-font-size: .75em !default;
+
+// caption
+$caption-color: $neutral-600 !default;
+
+// legend
+$legend-margin-bottom: .5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
+
+// mark
+$mark-padding: .2em !default;
+$mark-bg: #fcf8e3 !default;
+
+
+
+// Below is the components style
+
+// Button
+// Button Base Style
+$btn-font-weight:             400;
+$btn-padding-y:               .375rem !default;
+$btn-padding-x:               .75rem !default;
+$btn-font-family:             $font-family-base !default;
+$btn-font-size:               $font-size-base !default;
+$btn-line-height:             $line-height-base !default;
+$btn-outlint-offset:          .2rem !default;
+
+//Button responsive padding and font size
+$btn-padding-y-sm:            .25rem !default;
+$btn-padding-x-sm:            .5rem !default;
+$btn-font-size-sm:            $font-size-sm !default;
+$btn-outlint-offset-sm:       .175rem !default;
+
+$btn-padding-y-lg:            .5rem !default;
+$btn-padding-x-lg:            1rem !default;
+$btn-font-size-lg:            $font-size-lg !default;
+$btn-outlint-offset-lg:       .225rem !default;
+
+// Button Border
+$btn-border-width:            $border-width !default;
+
+// Link type Button
+$btn-link-color:              $link-color !default;
+$btn-link-hover-color:        $link-hover-color !default;
+$btn-link-disabled-color:     $neutral-600 !default;
+
+
+// Button radius
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
+
+// Button others
+$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-disabled-opacity:        .65 !default;
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;

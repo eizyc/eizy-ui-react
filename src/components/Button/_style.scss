@@ -1,0 +1,78 @@
+.#{$prefix}-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border:$btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius, $btn-outlint-offset);
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+  &-disabled,
+  &[disabled] {
+      cursor: not-allowed;
+      opacity: $btn-disabled-opacity;
+      box-shadow: none;
+      > * {
+          pointer-events: none;
+      }
+  }
+
+  &-lg{
+      @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $border-radius-lg, $btn-outlint-offset-lg);
+  }
+  &-sm {
+      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $border-radius-sm, $btn-outlint-offset-sm);
+  }
+  &-default {
+    @include button-style($white, $neutral-400, $body-color, lighten($primary, 10%), lighten($primary, 10%), $white)
+  }
+  &-primary {
+      @include button-style($primary, $primary, $white);
+  }
+  &-secondary {
+      @include button-style(transparent, $primary, $primary, lighten($primary, 10%), lighten($primary, 10%), $white);
+  }
+  &-tertiary {
+      @include button-style($white, transparent, $primary, lighten($primary, 10%), lighten($primary, 10%), $white);
+      box-shadow: none;
+  }
+  &-error {
+      @include button-style($error-100, $error-100, $white);
+  }
+  &-warning {
+      @include button-style($warning-100, $warning-100, $white);
+  }
+  &-success {
+      @include button-style($success-100, $success-100, $white);
+  }
+  &-link{
+    color: $btn-link-color;
+    box-shadow: none;
+    text-decoration: $link-decoration;
+    background-color: transparent;
+    &:not(&-disabled){
+      &:hover{
+        color: $btn-link-hover-color;
+      }
+      &:focus,&.focus{
+        text-decoration: $link-hover-decoration;
+      }
+    }
+    &-disabled{
+      cursor: not-allowed;
+      color: $btn-link-disabled-color;
+      > * {
+          pointer-events: none;
+          opacity: $btn-disabled-opacity;
+      }
+      
+    }
+    
+  }
+}

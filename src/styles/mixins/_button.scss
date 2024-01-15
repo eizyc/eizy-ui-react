@@ -1,0 +1,44 @@
+@use "sass:math";
+@mixin button-size($padding-y, $padding-x, $font-size, $border-raduis, $outlint-offset) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-raduis;
+  &:focus,
+  &.focus {
+    outline-width: math.div($outlint-offset, 2);
+    outline-offset: $outlint-offset;
+  }
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background, 10%),
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color,
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+  transition: all .28s;
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;    
+  }
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+    outline-color: $hover-border;
+    outline-style: solid;
+  }
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border-color: $border;    
+  }
+}
