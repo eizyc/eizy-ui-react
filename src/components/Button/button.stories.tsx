@@ -19,27 +19,14 @@ export const buttonWithSize = {
       <Button> middle button </Button>
       <Button size="sm"> small button </Button>
     </>
-  ),
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Button size="lg"> large button </Button>
-<Button> middle button </Button>
-<Button size="sm"> small button </Button>
-        `
-      }
-    }
-  }
+  )
 }
 
 
 /**
  * Use the `buttonType` prop to indicate status. Typically use
  */
-
 export const buttonWithType = {
-  title: 'test',
   render: () => (
     <>
     <Button>default button</Button>
@@ -51,18 +38,7 @@ export const buttonWithType = {
     <Button buttonType='success'>success button</Button>
     <Button buttonType='warning'>warning button</Button>
   </>
-  ),
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Button buttonType="primary">primary button</Button>
-<Button buttonType="error">error button</Button>
-<Button buttonType="link" href="https://google.com"> link button </Button>
-        `
-      }
-    }
-  }
+  )
 }
 
 /**
