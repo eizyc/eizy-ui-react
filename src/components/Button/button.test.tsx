@@ -5,7 +5,7 @@ import { STYLE_PREFIX } from "../../utils/const";
 
 const defaultProps = {
     onClick:jest.fn()
-  }
+}
   
 const primaryBtnProps:ButtonProps = {
   buttonType: 'primary',
@@ -22,9 +22,8 @@ const linkBtnProps:ButtonProps = {
 describe('test Button component', () => {
     it('should render the corrent default button', ()=> {
         render(<Button {...defaultProps}>Hello</Button>)
-        const el = screen.getByText('Hello')
+        const el = screen.getByRole('button', { name: 'Hello' })
         expect(el).toBeInTheDocument()
-        expect(el.tagName).toEqual('BUTTON')
         expect(el).toHaveClass(`${STYLE_PREFIX}-btn ${STYLE_PREFIX}-btn-default`)
         expect(el).not.toBeDisabled()
         fireEvent.click(el)
@@ -33,17 +32,19 @@ describe('test Button component', () => {
 
     it( 'should render the correct component based on different props', ()=> {
         render(<Button {...primaryBtnProps}>Hello</Button>)
-        const el = screen.getByText('Hello')
+        const el = screen.getByRole('button', { name: 'Hello' })
         expect(el).toBeInTheDocument()
         expect(el).toHaveClass(`${STYLE_PREFIX}-btn-primary ${STYLE_PREFIX}-btn-sm ${primaryBtnProps.className}`)
         expect(el).not.toBeDisabled()
     })
 
     it( 'should render a link when btnType equals link and href id provided', ()=> {
-        render(<Button {...linkBtnProps}>Link</Button>)
-        const el = screen.getByText('Link')
-        expect(el).toBeInTheDocument()
-        expect(el.tagName).toEqual('A')
+        render(<Button {...linkBtnProps}>link button</Button>)
+        const el = screen.getByText((content, element) => element?.tagName.toLowerCase() === 'span')
+        const a = screen.getByRole('link')
+        expect(a.tagName).toEqual('A')
+        expect(a).toHaveTextContent('link button')
+        expect(a).toBeInTheDocument()
         expect(el).toHaveClass(`${STYLE_PREFIX}-btn-link`)
         expect(el).not.toBeDisabled()
     })

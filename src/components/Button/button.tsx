@@ -1,4 +1,4 @@
-import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
 
@@ -14,7 +14,6 @@ export interface BaseButtonProps {
     size?: ButtonSize,
     buttonType?: ButtonType;
     ghost?: boolean;
-    children: React.ReactNode;
     href?: string;
 }
 
@@ -24,7 +23,7 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps =Partial<NativeButtonProps & AnchorButtonProps>
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
     const {buttonType, className, disabled, size, ghost, children, href, ...restProps} = props
     // button btn-lg btn-primary
     const classes = classnames(prefixCls, className, {

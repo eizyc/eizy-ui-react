@@ -25,9 +25,8 @@ const preview: Preview = {
     docs:{
       source: {
         transform: (code, storyContext) => {
-          const regex = /render: \(\) => ([\s\S]*?)(,|\})/
+          const regex = /render: \(\) => ([\s\S]*)(,|\})/
           const found = code.match(regex)
-          console.log(found, found?.length)
           if (found && found.length == 3) {
             const text = found[1]?.replaceAll(/<>|<\/>/gi, '')
             return text

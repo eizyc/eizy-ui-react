@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+@import '../../styles/mixins/button';
 .#{$prefix}-btn {
   position: relative;
   display: inline-block;
@@ -13,7 +15,6 @@
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
-  &-disabled,
   &[disabled] {
       cursor: not-allowed;
       opacity: $btn-disabled-opacity;

@@ -48,7 +48,7 @@ export const buttonWithType = {
  * ~~~
  */
 const meta:Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Basic/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
