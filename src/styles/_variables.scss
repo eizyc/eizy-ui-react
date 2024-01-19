@@ -15,6 +15,16 @@ $neutral-800: #262626 !default;
 $neutral-900: #1f1f1f !default;
 $black:    #000 !default;
 
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #fadb14 !default;
+$green:   #52c41a !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
 
 // Status Colors
 $success-100: #529E66!default;
@@ -34,13 +44,32 @@ $primary-200: #5BB4CF!default;
 $primary-300: #369CC2!default;
 $primary-400: #24789C!default;
 $primary-500: #155575!default;
-$primary: $primary-300!default;
 $secondary-100:#E89094!default;
 $secondary-200:#DB656F!default;
 $secondary-300: #CF3E50!default;
 $secondary-400:#A82A3D!default;
 $secondary-500:#821A2D!default;
-$secondary: $secondary-300!default;
+
+$primary:       $primary-300!default;
+$secondary:     $secondary-300!default;
+$success:       $success-200 !default;
+$info:          $cyan !default;
+$warning:       $warning-200 !default;
+$error:         $error-200 !default;
+$light:         $neutral-100 !default;
+$dark:          $neutral-800 !default;
+
+$theme-colors: 
+(
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "error":      $error,
+  "light":      $light,
+  "dark":       $dark
+);
 
 // Font Family
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;

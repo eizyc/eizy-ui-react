@@ -1,5 +1,7 @@
 import { useState, FC, PropsWithChildren, useContext, Children, FunctionComponentElement, cloneElement, MouseEvent, useMemo, useCallback, useRef, useEffect, useDeferredValue } from 'react'
 import classnames from 'classnames'
+import Transition from '../Transition/transition';
+import Icon from '../Icon/icon'
 import { useWatch } from '../../utils/hooks';
 import { MenuContext } from './menu';
 import { STYLE_PREFIX } from '../../utils/const';
@@ -92,13 +94,24 @@ export const Submenu: FC<PropsWithChildren<SubMenuProps>> = (props) => {
       }
     })
     subIndexRef.current = subIndexs
-    return <ul className={submenuClasses} aria-label='submenu'>
-      {childrens}
-    </ul>
+    return (
+      <Transition
+        in={open}
+        timeout={300}
+        animation="zoom-in-top"
+      >
+      <ul className={submenuClasses} aria-label='submenu'>
+        {childrens}
+      </ul>
+    </Transition>
+    )
   }
   return (
     <li key={index} className={classes} {...events}>
-      <span aria-expanded={open}>{title}</span>
+      <div className={`${prefixCls}-title`}>
+        <span aria-expanded={open}>{title}</span>
+        <Icon icon="angle-down" className="arrow-icon"/>
+      </div>
       {renderChildren()}
     </li>
   )

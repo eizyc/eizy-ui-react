@@ -2,8 +2,12 @@
 
 @import 'reset';
 
+@import 'animation';
+
 @import './mixins/index';
 
 @import '../components/Button/style';
 
 @import '../components/Menu/style';
+
+@import '../components/Icon/style';
