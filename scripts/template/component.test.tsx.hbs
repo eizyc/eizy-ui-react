@@ -1,0 +1,17 @@
+import { render, screen } from '@testing-library/react'
+import { {{Component}}Props } from './{{component}}'
+import {{Component}} from './{{component}}'
+import { STYLE_PREFIX } from "../../utils/const";
+
+const defaultProps:{{Component}}Props = {
+
+}
+  
+describe('test {{component}} component', () => {
+    it('should render the corrent default {{component}}', ()=> {
+        render(<{{Component}} {...defaultProps}>{{component}}</{{Component}}>)
+        const el = screen.getByText('{{component}}')
+        expect(el).toBeInTheDocument()
+        expect(el).toHaveClass(`${STYLE_PREFIX}-{{component}}`)
+    })
+})
