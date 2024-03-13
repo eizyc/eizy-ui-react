@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+.#{$prefix}-auto-complete {
+  position: relative;
+}
+.#{$prefix}-suggestions {
+  list-style:none;
+  padding-left: 0;
+  white-space: nowrap;
+  position: absolute;
+  background: $white;
+  z-index: 100;
+  top: calc(100% + 8px);
+  left: 0;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  width: 100%;
+  .#{$prefix}-suggstion-loading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
+  }
+  .#{$prefix}-suggestion-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+    color: $body-color;
+    &.#{$prefix}-active {
+      background: $menu-item-active-color ;
+      color: $white ;
+    }
+    &:hover {
+      color: $menu-item-active-color;
+    }
+  }
+}

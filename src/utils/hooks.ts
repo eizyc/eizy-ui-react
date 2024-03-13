@@ -11,6 +11,20 @@ export const useWatch = ( func:Function, deps:Array<any>) => {
   }, deps)
 }
 
+export const useDebounce = (value: any, delay = 300) => {
+  const [debouncedValue, setDebouncedValue] = useState(value)
+  useEffect(() => {
+    const handler = window.setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value, delay])
+  return debouncedValue
+}
+
+
 export const useClickOutside = (ref: RefObject<HTMLElement>, handler: Function) => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {

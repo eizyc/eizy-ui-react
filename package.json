@@ -62,6 +62,7 @@
     "@storybook/test": "^7.6.8",
     "@types/classnames": "^2.3.1",
     "@types/react-transition-group": "^4.4.10",
+    "axios": "^1.6.5",
     "chalk": "^5.3.0",
     "classnames": "^2.3.2",
     "eslint-plugin-storybook": "^0.6.15",
@@ -72,5 +73,10 @@
     "sass": "^1.69.5",
     "storybook": "^7.6.8",
     "webpack": "^5.89.0"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)"
+    ]
   }
 }
