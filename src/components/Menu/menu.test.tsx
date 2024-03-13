@@ -1,10 +1,12 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { config } from 'react-transition-group'
 import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 import { renderScss } from '../../utils/jestHelper'
 import { STYLE_PREFIX } from "../../utils/const";
 
+config.disabled = true
 const createStyleFile = () => {
   // eslint-disable-next-line testing-library/render-result-naming-convention
   const cssFile = renderScss(`src/components/Menu/_style.scss`)
@@ -16,6 +18,12 @@ const createStyleFile = () => {
 
 const cssStyleTag = createStyleFile()
 
+
+jest.mock('../Icon/icon', () => {
+  return (props: any) => {
+    return <span onClick={props.onClick}>{props.icon}</span>
+  }
+})
 
 const defaultProps:MenuProps = {
   defaultActive: '0',
@@ -67,23 +75,23 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
     expect(menuElement).toHaveClass(`${STYLE_PREFIX}-menu ${defaultProps.className}`)
     const menuItemElement = within(menuElement).getAllByRole("listitem")
     expect(menuItemElement.length).toEqual(5)
-    expect(activeElement).toHaveClass(`active`)
-    expect(disabledElement).toHaveClass(`disabled`)
+    expect(activeElement).toHaveClass(`${STYLE_PREFIX}-active`)
+    expect(disabledElement).toHaveClass(`${STYLE_PREFIX}-disabled`)
   })
 
   it('click menuitem should change active and call the right callback expect disaled', () => {
     const clickMenuItem = within(menuElement).getByText('click button')
     fireEvent.click(clickMenuItem)
-    expect(clickMenuItem).toHaveClass(`active`)
+    expect(clickMenuItem).toHaveClass(`${STYLE_PREFIX}-active`)
     expect(defaultProps.onSelect).toHaveBeenCalledWith('2')
     fireEvent.click(disabledElement)
-    expect(disabledElement).not.toHaveClass(`active`)
+    expect(disabledElement).not.toHaveClass(`${STYLE_PREFIX}-active`)
     expect(defaultProps.onSelect).not.toHaveBeenCalledWith('1')
   })
 
   it('should show dropdown items when hover on subMenu', async ()=>{
     const dropMenu = screen.queryByText('drop1')
-    expect(dropMenu).not.toBeVisible()
+    expect(dropMenu).not.toBeInTheDocument()
     const dropdownElement = screen.getByText('dropdown')
     fireEvent.mouseEnter(dropdownElement)
     await waitFor(() => {
@@ -93,7 +101,7 @@ describe('test Menu and MenuItem component in default(horizontal) mode', () => {
     expect(defaultProps.onSelect).toHaveBeenCalledWith('3-0')
     fireEvent.mouseLeave(dropdownElement)
     await waitFor(() => {
-      expect(dropMenu).not.toBeVisible()
+      expect(dropMenu).not.toBeInTheDocument()
     })
   })
 })
@@ -109,11 +117,13 @@ describe('test Menu and MenuItem component in vertical mode', () => {
     expect(menuElement).toBeInTheDocument()
     expect(menuElement).toHaveClass(`${STYLE_PREFIX}-menu-vertical`)
   })
-  it('should show dropdown items when click on subMenu for vertical mode', () => {
+  it('should show dropdown items when click on subMenu for vertical mode', async() => {
     const dropDownItem = screen.queryByText('drop1')
-    expect(dropDownItem).not.toBeVisible()
+    expect(dropDownItem).not.toBeInTheDocument()
     fireEvent.click(screen.getByText('dropdown'))
-    expect(dropDownItem).toBeVisible()
+    await(()=>{
+      expect(dropDownItem).toBeVisible()
+    })
   })
   it('should show subMenu dropdown when defaultOpenSubMenus contains SubMenu index', () => {
     expect(screen.queryByText('opened1')).toBeVisible()

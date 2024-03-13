@@ -2,7 +2,7 @@ import { useState, FC, PropsWithChildren, useContext, Children, FunctionComponen
 import classnames from 'classnames'
 import Transition from '../Transition/transition';
 import Icon from '../Icon/icon'
-import { useWatch } from '../../utils/hooks';
+import { useWatch, useClickOutside } from '../../utils/hooks';
 import { MenuContext } from './menu';
 import { STYLE_PREFIX } from '../../utils/const';
 import { MenuItemProps } from './menuItem';
@@ -19,12 +19,17 @@ export interface SubMenuProps {
 
 export const Submenu: FC<PropsWithChildren<SubMenuProps>> = (props) => {
   const timerRef = useRef<any>();
+  const componentRef = useRef(null)
   const subIndexRef = useRef<Array<string>>([]);
   const { index, title, children, disabled, className} = props
   const context = useContext(MenuContext)
   const { mode, defaultOpenSubMenus, triggerMode, index:activeIndex } = context
   const isOpend = (index && mode === 'vertical') ? defaultOpenSubMenus?.includes(index):false
   const [ open , setOpen ] = useState(isOpend)
+  
+  useClickOutside(componentRef, () => {
+    setOpen(false)
+  })
 
   const active = useMemo(()=>{
     return subIndexRef.current.includes(activeIndex)
@@ -76,7 +81,7 @@ export const Submenu: FC<PropsWithChildren<SubMenuProps>> = (props) => {
 
   const renderChildren = () => {
     const submenuClasses = classnames(`${prefixCls}-menu`,{
-      [`open`]: open
+      [`${STYLE_PREFIX}-open`]: open
     })
     const subIndexs:Array<string> = []
     const childrens = Children.map(children, (child, idx) => {
@@ -107,10 +112,10 @@ export const Submenu: FC<PropsWithChildren<SubMenuProps>> = (props) => {
     )
   }
   return (
-    <li key={index} className={classes} {...events}>
+    <li key={index} className={classes} {...events} ref={componentRef}>
       <div className={`${prefixCls}-title`}>
         <span aria-expanded={open}>{title}</span>
-        <Icon icon="angle-down" className="arrow-icon"/>
+        <Icon icon="angle-down" className={`${STYLE_PREFIX}-arrow-icon`}/>
       </div>
       {renderChildren()}
     </li>

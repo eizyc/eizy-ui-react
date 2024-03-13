@@ -7,12 +7,7 @@ import SubMenu from './subMenu'
 type Story = StoryObj<typeof Menu>
 
 
-// export const Playground: Story = {
-//   args: {
-//   }
-// }
-
-export const defaultMenu: Story =  {
+export const Playground: Story =  {
   render: ()=>(
   <Menu
     defaultActive={'0'}
@@ -29,12 +24,12 @@ export const defaultMenu: Story =  {
     <MenuItem disabled>
       disabled
     </MenuItem>
-    <SubMenu title="下拉选项">
+    <SubMenu title="drop-down-menu">
       <MenuItem>
-        下拉选项一
+        drop-down-menu-1
       </MenuItem>
       <MenuItem>
-        下拉选项二
+        drop-down-menu-2
       </MenuItem>
     </SubMenu>
   </Menu>
@@ -55,12 +50,12 @@ export const MenuWithVertical: Story =  {
     <MenuItem>
       cool link 2
     </MenuItem>
-    <SubMenu title="点击下拉选项">
+    <SubMenu title="drop-down-menu">
       <MenuItem>
-        下拉选项一
+        drop-down-menu-1
       </MenuItem>
       <MenuItem>
-        下拉选项二
+        drop-down-menu-2
       </MenuItem>
     </SubMenu>
   </Menu>
@@ -81,12 +76,12 @@ export const MenuWithDefaultOpenSubMenus: Story =  {
     <MenuItem>
       cool link 2
     </MenuItem>
-    <SubMenu title="默认展开下拉选项">
+    <SubMenu title="drop-down-menu">
       <MenuItem>
-        下拉选项一
+        drop-down-menu-1
       </MenuItem>
       <MenuItem>
-        下拉选项二
+        drop-down-menu-2
       </MenuItem>
     </SubMenu>
   </Menu>
@@ -102,15 +97,14 @@ export const MenuWithDefaultOpenSubMenus: Story =  {
 const meta:Meta<typeof Menu> = {
   title: 'Basic/Menu',
   component: Menu,
+  subcomponents: {
+    // https://github.com/storybookjs/storybook/issues/23170
+    // @ts-ignore
+    MenuItem,
+    // @ts-ignore
+    SubMenu
+  },
   tags: ['autodocs'],
-  argTypes: {
-    onSelect: {
-      control: {
-        type: 'function'
-      },
-      description: 'description'
-    }
-  }
 };
 
 export default meta

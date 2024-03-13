@@ -18,8 +18,8 @@ export const MenuItem: FC<PropsWithChildren<MenuItemProps>> = (props) => {
   const context = useContext(MenuContext)
 
   const classes = classnames(prefixCls, className, {
-    [`disabled`]: disabled,
-    [`active`]: context.index === index,
+    [`${STYLE_PREFIX}-disabled`]: disabled,
+    [`${STYLE_PREFIX}-active`]: context.index === index,
   })
 
   const handleClick = (e: MouseEvent) => {
