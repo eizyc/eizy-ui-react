@@ -1,7 +1,11 @@
 import type { Preview } from "@storybook/react";
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/blocks';
 import React from "react";
 import "../src/styles/index.scss"
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
+library.add(fas)
 const wrapperStyle:React.CSSProperties = {
   padding: '20px 40px'
 }
@@ -34,7 +38,20 @@ const preview: Preview = {
           return code
         },
         format: true
-      }
+      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories />
+        </>
+      ),
+    },
+    playground: {
+      storyId: "playground",
     }
   },
   globalTypes: {
