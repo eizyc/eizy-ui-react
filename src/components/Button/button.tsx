@@ -1,4 +1,4 @@
-import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren } from 'react';
+import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
 
