@@ -192,6 +192,7 @@ $mark-bg: #fcf8e3 !default;
 
 // Button
 // Button Base Style
+$btn-margin-bottom:           1rem!default;
 $btn-font-weight:             400;
 $btn-padding-y:               .375rem !default;
 $btn-padding-x:               .75rem !default;
@@ -249,3 +250,63 @@ $menu-item-disabled-cursor:    not-allowed;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
 $submenu-menu-offset: 8px;
+
+//Input
+$input-margin-bottom:                   $btn-margin-bottom !default;
+$input-padding-y:                       $btn-padding-y !default;
+$input-padding-x:                       $btn-padding-x !default;
+$input-font-family:                     $btn-font-family !default;
+$input-font-size:                       $btn-font-size !default;
+$input-font-weight:                     $font-weight-base !default;
+$input-line-height:                     $btn-line-height !default;
+
+$input-padding-y-sm:                    $btn-padding-y-sm !default;
+$input-padding-x-sm:                    $btn-padding-x-sm !default;
+$input-font-size-sm:                    $btn-font-size-sm !default;
+
+$input-padding-y-lg:                    $btn-padding-y-lg !default;
+$input-padding-x-lg:                    $btn-padding-x-lg !default;
+$input-font-size-lg:                    $btn-font-size-lg !default;
+
+$input-bg:                              $white !default;
+$input-disabled-bg:                     $neutral-200 !default;
+$input-disabled-color:                  $neutral-400 !default;
+$input-disabled-border-color:           null !default;
+$input-disabled-cursor:                 not-allowed !default;
+
+
+$input-color:                           $neutral-700 !default;
+$input-border-color:                    $neutral-400 !default;
+$input-border-width:                    $border-width !default;
+$input-box-shadow:                      $box-shadow-inset !default;
+
+$input-border-radius:                   $border-radius !default;
+$input-border-radius-lg:                $border-radius-lg !default;
+$input-border-radius-sm:                $border-radius-sm !default;
+
+$input-icon-width:                      36px !default;
+$input-icon-width-lg:                   42px !default;
+$input-icon-width-sm:                   28px !default;
+$input-icon-offset:                     4px !default;
+
+
+$input-focus-bg:                        $input-bg !default;
+$input-focus-border-color:              lighten($primary, 25%) !default;
+$input-focus-width:                     .2rem !default;
+$input-focus-color:                     $input-color !default;
+$input-focus-shadow-color:              rgba($primary, .25) !default;
+$input-focus-shadow-error-color:        rgba($error, .25) !default;
+$input-focus-box-shadow:                0 0 0 $input-focus-width $input-focus-shadow-color !default;
+$input-focus-box-shadow-error:          0 0 0 $input-focus-width $input-focus-shadow-error-color !default;
+
+$input-placeholder-color:               $neutral-600 !default;
+$input-plaintext-color:                 $body-color !default;
+
+$input-height-border:                   $input-border-width * 2 !default;
+
+
+$input-transition:                      border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
+
+$input-group-addon-color:               $input-color !default;
+$input-group-addon-bg:                  $neutral-200 !default;
+$input-group-addon-border-color:        $input-border-color !default;

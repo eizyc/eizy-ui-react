@@ -1,0 +1,122 @@
+@import '../../styles/variables';
+
+.#{$prefix}-input {
+  margin-bottom: $input-margin-bottom;
+  display: inline-flex;
+  &-block{
+    display: flex;
+    input {
+      width: 100%;
+    }
+  }
+
+  &-affix-wrapper{
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    box-shadow: $input-box-shadow;
+    transition: $input-transition;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    &:has(input:focus){
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      box-shadow: $input-focus-box-shadow;
+    }
+    &:has(input::placeholder){
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+    &:has(input:disabled, input[readonly]){
+      background-color: $input-disabled-bg;
+      border-color: $input-disabled-border-color;
+      opacity: 1;
+      cursor: $input-disabled-cursor;
+      color: $input-disabled-color;
+    }
+    input {
+      border: none;
+      padding: 0;
+      cursor: inherit;
+      &:focus{
+        outline: 0;
+      }
+    }
+  }
+  &-prepend, &-append {
+    display: flex;
+    align-items: center;
+    padding: $input-padding-y $input-padding-x;
+    margin-bottom: 0;
+    font-size: $input-font-size;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height;
+    color: $input-group-addon-color;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $input-group-addon-bg;
+    border: $input-border-width solid $input-group-addon-border-color;
+    border-radius: $input-border-radius;
+  }
+  &-prepend{
+    border-right: 0;
+  }
+  &-append{
+    border-left: 0;
+  }
+  &-prefix, &-suffix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $input-color;
+  }
+  &-prefix{
+    margin-right: $input-icon-offset;
+    left: $input-padding-x;
+  }
+  &-suffix{
+    margin-left: $input-icon-offset;
+    right: $input-padding-x;
+  }
+}
+
+.#{$prefix}-disabled{
+  .#{$prefix}-input-prefix, .#{$prefix}-input-suffix{
+    color: $input-disabled-color;
+    svg {
+      color: $input-disabled-color;
+    }
+  }
+}
+
+.#{$prefix}-input-group > .#{$prefix}-input-prepend,
+.#{$prefix}-input-group-append > .#{$prefix}-input-affix-wrapper {
+  @include border-right-radius(0);
+}
+
+.#{$prefix}-input-group > .#{$prefix}-input-append,
+.#{$prefix}-input-group-prepend > .#{$prefix}-input-affix-wrapper {
+  @include border-left-radius(0);
+}
+
+.#{$prefix}-input-size-sm .#{$prefix}-input-affix-wrapper {
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  font-size: $input-font-size-sm;
+  border-radius: $input-border-radius-sm;
+}
+
+.#{$prefix}-input-size-lg .#{$prefix}-input-affix-wrapper {
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  font-size: $input-font-size-lg;
+  border-radius: $input-border-radius-lg;
+}
