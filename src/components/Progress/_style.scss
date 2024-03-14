@@ -1,0 +1,59 @@
+@import '../../styles/mixins/progress';
+
+.#{$prefix}-progress {
+  width: 100%;
+  box-sizing: border-box;
+  line-height: $progress-line-height;
+  display: block;
+  &-outer {
+    border-radius: $progress-border-radius;
+    background-color: $progress-bg;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+  }
+  &-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    border-radius: $progress-border-radius;
+    line-height: 1;
+    transition: $progress-transition;
+    background-color: $progress-bg;
+  }
+  &-info {
+    font-size: $progress-font-size;
+    line-height: $progress-info-line-height;
+    margin-left: $progress-info-offset;
+    vertical-align: middle;
+  }
+  &-show-info {
+    width: calc(100% - $progress-info-width - $progress-info-offset );
+  }
+  &-status-active {
+    .#{$prefix}-progress-inner {
+      &::before{
+        content: '';
+        position: absolute;
+        border-radius: $progress-border-radius;
+        width: 100%;
+        background: white;
+        left: 0;
+        height: 100%;
+        animation: $progress-active-animation;
+      }
+    }
+  }
+}
+
+@include progress-status-color('normal', $progress-normal-bg);
+@include progress-status-color('success', $progress-success-bg);
+@include progress-status-color('error', $progress-error-bg);
+@include progress-status-color('active', $progress-active-bg);
+

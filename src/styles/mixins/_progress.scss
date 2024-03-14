@@ -1,0 +1,10 @@
+@mixin progress-status-color($status, $color) {
+  .#{$prefix}-progress-status-#{$status}{
+    .#{$prefix}-progress-inner {
+      background: $color;
+    }
+    .#{$prefix}-icon {
+      color: $color;
+    }
+  }
+}
