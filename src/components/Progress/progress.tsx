@@ -28,14 +28,15 @@ export const Progress: FC<PropsWithChildren<ProgressProps>> = (props) => {
     styles,
     showInfo,
     size,
-    status
+    status,
+    className
   } = props
 
   const _status = useMemo(()=>{
     return percent === 100 ? 'success': status
   }, [percent, status])
 
-  const classes = classnames(prefixCls,`${prefixCls}-status-${_status}`)
+  const classes = classnames(prefixCls, className, `${prefixCls}-status-${_status}`)
 
   const innerClasses = classnames(`${prefixCls}-inner`)
 
