@@ -1,7 +1,8 @@
 
 import { join } from 'path';
 import { readFile } from 'fs/promises'
-import { outputFile, pathExists, emptyDir } from 'fs-extra/esm'
+import { readdirSync } from 'fs'
+import { outputFile, pathExistsSync } from 'fs-extra/esm'
 import { glob } from 'glob';
 import { fileURLToPath } from 'url'
 import handlebars from "handlebars";
@@ -20,11 +21,9 @@ const component = process.argv[2];
 const upName = upCase(component);
 const lowName = lowCase(component);
 const dirName = upName
-const dirPath = join(process.cwd(), `src/${dirName}`)
-
+const dirPath = join(process.cwd(), `src/components/${dirName}`)
 const runScripts = async() => {
-
-if (pathExists(dirPath) || !emptyDir(dirPath)){
+if (pathExistsSync(dirPath) && readdirSync(dirPath).length !== 0){
   console.log(chalk.red.bold(`[${upName} component] the folder is not empty!`));
   return
 }
