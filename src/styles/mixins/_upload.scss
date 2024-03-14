@@ -1,0 +1,11 @@
+@mixin upload-status-color($status, $color) {
+  
+  .#{$prefix}-upload-list-item-status-#{$status}{
+    .#{$prefix}-upload-list-item-name {
+      color: $color;
+    }
+    .#{$prefix}-icon {
+      color: $color;
+    }
+  }
+}

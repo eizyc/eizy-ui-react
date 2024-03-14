@@ -328,6 +328,15 @@ $progress-success-bg:                   $success !default;
 $progress-error-bg:                     $error !default;
 $progress-active-bg:                    $primary !default;
 
+// Upload
+$upload-normal-color:                   $primary !default;
+$upload-success-color:                  $success !default;
+$upload-error-color:                    $error !default;
+$upload-item-prefix-icon-offset:        6px !default;
+$upload-item-progress-offset-bottom:    calc($progress-font-size * -0.5 * $progress-line-height) !default;
+$upload-item-progress-offset-left:      24px !default;
+
+
 
 
 
