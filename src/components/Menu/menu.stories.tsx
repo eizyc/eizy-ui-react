@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions'
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/blocks';
 import type { Meta, StoryObj } from '@storybook/react'
 import Menu from './menu'
 import MenuItem from './menuItem'
@@ -103,6 +104,22 @@ const meta:Meta<typeof Menu> = {
     MenuItem,
     // @ts-ignore
     SubMenu
+  },
+  parameters: {
+    docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable />
+            <Stories />
+          </>
+        )
+      },
+    }
   },
   tags: ['autodocs'],
 };

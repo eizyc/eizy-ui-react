@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react";
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/blocks';
 import React from "react";
 import "../src/styles/index.scss"
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -39,16 +38,6 @@ const preview: Preview = {
         },
         format: true
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories />
-        </>
-      ),
     },
     playground: {
       storyId: "playground",
