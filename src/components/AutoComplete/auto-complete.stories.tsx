@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AutoComplete, DataSourceType } from './auto-complete'
+import { lakers, lakersWithNumber } from '../../utils/data';
 
 type Story = StoryObj<typeof AutoComplete>
 interface LakerPlayerProps {
@@ -11,22 +12,6 @@ interface GithubUserProps {
   url: string;
   avatar_url: string;
 }
-
-const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
-'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
-
-const lakersWithNumber = [
-  {value: 'bradley', number: 11},
-  {value: 'pope', number: 1},
-  {value: 'caruso', number: 4},
-  {value: 'cook', number: 2},
-  {value: 'cousins', number: 15},
-  {value: 'james', number: 23},
-  {value: 'AD', number: 3},
-  {value: 'green', number: 14},
-  {value: 'howard', number: 39},
-  {value: 'kuzma', number: 0},
-] 
 
 export const SimpleAutoComplete= {
   args: {

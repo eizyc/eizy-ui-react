@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/blocks';
 import type { Meta, StoryObj } from '@storybook/react'
 import Menu from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
+import { subcomponentsDocs } from '../../utils/storybook'
 
 type Story = StoryObj<typeof Menu>
 
@@ -107,18 +107,7 @@ const meta:Meta<typeof Menu> = {
   },
   parameters: {
     docs: {
-      page: () => {
-        return (
-          <>
-            <Title />
-            <Subtitle />
-            <Description />
-            <Primary />
-            <ArgsTable />
-            <Stories />
-          </>
-        )
-      },
+      page: subcomponentsDocs
     }
   },
   tags: ['autodocs'],
