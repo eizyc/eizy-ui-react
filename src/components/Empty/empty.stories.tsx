@@ -25,7 +25,7 @@ export const Example = {
  */
 export const ExampleWithImage = {
   args: {
-    image: '/storybook-test-empty.png',
+    image: 'storybook-test-empty.png',
     imageStyle: {
       height: '180px'
     },
