@@ -2,19 +2,20 @@ import { FC, PropsWithChildren } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
 
-const prefixCls = `${STYLE_PREFIX}-{{component}}`
+export const prefixCls = `${STYLE_PREFIX}-{{component}}`
 
 export interface {{Component}}Props {
     className?: string;
+    style?: CSSProperties;
 }
 
 export const {{Component}}: FC<PropsWithChildren<{{Component}}Props>> = (props) => {
-    const { className, ...restProps } = props
+    const { className, style,  ...restProps } = props
 
     const classes = classnames(prefixCls, className, {
     })
 
-    return <div className={classes}></div>
+    return <div className={classes} style={style}></div>
 }
 
 {{Component}}.defaultProps = {

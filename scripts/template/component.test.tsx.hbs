@@ -1,17 +1,31 @@
+import { useState } from 'react';
 import { render, screen } from '@testing-library/react'
-import { {{Component}}Props } from './{{component}}'
+import { {{Component}}Props, prefixCls } from './{{component}}'
 import {{Component}} from './{{component}}'
-import { STYLE_PREFIX } from "../../utils/const";
 
 const defaultProps:{{Component}}Props = {
 
 }
+
+describe('test control / un-control of {{Component}} component',()=>{
+  it('should support defaultValue', ()=> {
+    render(<{{Component}} {...defaultProps}/>)
+  })
+  it('should support under control', ()=> {
+    const App = () => {
+      const [value, setValue] = useState('');
+      const handleChange = () => {
+      }
+      return <{{Component}} value={value} onChange={handleChange}/>
+    }
+    render(<App />)
+  })
+})
   
 describe('test {{component}} component', () => {
     it('should render the corrent default {{component}}', ()=> {
         render(<{{Component}} {...defaultProps}>{{component}}</{{Component}}>)
-        const el = screen.getByText('{{component}}')
+        const el = screen.getByText('', {selector: `.${prefixCls}`})
         expect(el).toBeInTheDocument()
-        expect(el).toHaveClass(`${STYLE_PREFIX}-{{component}}`)
     })
 })
