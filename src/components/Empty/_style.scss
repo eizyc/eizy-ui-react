@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.#{$prefix}-empty {
+  text-align: center;
+  color: $neutral-400;
+  font-size: $font-size-sm;
+  &-image {
+    img {
+      height: inherit;
+      width: inherit;
+      object-fit: inherit;
+    }
+    svg {
+      height: inherit;
+      width: inherit;
+    }
+  }
+}
