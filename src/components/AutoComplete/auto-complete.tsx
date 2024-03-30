@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { STYLE_PREFIX } from '../../utils/const';
 import Input, { InputProps } from '../Input/input';
 import Icon from '../Icon/icon';
-import { useClickOutside, useDebounce } from '../../utils/hooks';
+import { useClickOutside, useDebounce, useMergedState } from '../../utils/hooks';
 import Transition from '../Transition/transition';
 
 const prefixCls = `${STYLE_PREFIX}-auto-complete`
@@ -11,24 +11,28 @@ interface DataSourceObject {
   value: string;
 }
 export type DataSourceType<T = {}> = T & DataSourceObject
-export interface AutoCompleteProps extends Omit<InputProps, 'onSelect' | 'onChange' |'value' >{
+export interface AutoCompleteProps extends Omit<InputProps, 'onSelect' | 'onChange' >{
   fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
   onChange?: (value: string) => void;
   onSelect?: (item: DataSourceType) => void;
   renderOption?: (item: DataSourceType) => ReactElement;
-  value?: string
 }
 
 export const AutoComplete: FC<PropsWithChildren<AutoCompleteProps>> = (props) => {
-  const { fetchSuggestions, onSelect, onChange, value, renderOption, ...restProps } = props
+  const { fetchSuggestions, onSelect, onChange, value, defaultValue, renderOption, ...restProps } = props
   const classes = classnames(prefixCls, {})
   const componentRef = useRef<HTMLDivElement>(null)
   const [ loading, setLoading ] = useState(false)
-  const [ inputValue, setInputValue ] = useState<string>(value??'')
-  const debouncedValue = useDebounce(inputValue, 300)
   const [ suggestions, setSuggestions ] = useState<DataSourceType[]>([])
   const [ activeIdx, setActiveIdx] = useState(-1)
   const triggerSearch = useRef(false)
+
+  const [ inputValue, setInputValue ] = useMergedState<string>('', {
+    value,
+    defaultValue
+  });
+  const debouncedValue = useDebounce(inputValue, 300)
+
   useClickOutside(componentRef, () => { setSuggestions([])})
 
   useEffect(() => {
@@ -65,9 +69,8 @@ export const AutoComplete: FC<PropsWithChildren<AutoCompleteProps>> = (props) =>
   }
   const handleSelect = (item: DataSourceType) => {
     setInputValue(item.value)
-    if (onSelect) {
-      onSelect(item)
-    }
+    onChange?.(item.value)
+    onSelect?.(item)
     triggerSearch.current = false
     setSuggestions([])
   }

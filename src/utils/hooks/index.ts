@@ -1,15 +1,7 @@
 import { useRef, useEffect, useState, RefObject } from "react"
-
-export const useWatch = ( func:Function, deps:Array<any>) => {
-  const init = useRef(true)
-  useEffect(()=>{
-    if (init.current) {
-      init.current = false
-      return
-    }
-    func()
-  }, deps)
-}
+export { default as useMergedState } from './useMergedState'
+export { default as useUpdateEffect } from './update/useUpdateEffect'
+export { default as useUpdateLayoutEffect } from './update/useUpdateLayoutEffect'
 
 export const useDebounce = (value: any, delay = 300) => {
   const [debouncedValue, setDebouncedValue] = useState(value)

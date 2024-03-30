@@ -1,14 +1,15 @@
 import { PropsWithChildren, InputHTMLAttributes, ReactElement, ChangeEvent, forwardRef, useLayoutEffect, useState } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
-import { useWatch } from '../../utils/hooks';
+import { useMergedState } from '../../utils/hooks';
 
 export const prefixCls = `${STYLE_PREFIX}-input`
 
 type InputSize = 'lg' | 'md' |'sm'
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'|'prefix'|'suffix'|'value' > {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'|'prefix'|'suffix'|'value'|'defaultValue' > {
     className?: string;
     value?:string;
+    defaultValue?:string;
     disabled?: boolean;
     block?: boolean;
     size?: InputSize;
@@ -22,11 +23,10 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>((props, ref) => {
     const { className, disabled, block, size, prefix, suffix, prepend, append, defaultValue, onChange, value, ...restProps } = props
 
-    const [_value, setValue] = useState(() =>value??defaultValue??'')
-
-    useWatch(() => {
-      setValue(value??'');
-    }, [value])
+    const [ _value, setValue ] = useMergedState<string>(defaultValue, {
+      value,
+      defaultValue
+    });
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;

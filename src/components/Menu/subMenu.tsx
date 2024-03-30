@@ -2,7 +2,7 @@ import { useState, FC, PropsWithChildren, useContext, Children, FunctionComponen
 import classnames from 'classnames'
 import Transition from '../Transition/transition';
 import Icon from '../Icon/icon'
-import { useWatch, useClickOutside } from '../../utils/hooks';
+import { useUpdateEffect, useClickOutside } from '../../utils/hooks';
 import { MenuContext } from './menu';
 import { STYLE_PREFIX } from '../../utils/const';
 import { MenuItemProps } from './menuItem';
@@ -43,7 +43,7 @@ export const Submenu: FC<PropsWithChildren<SubMenuProps>> = (props) => {
   })
 
 
-  useWatch(()=>{
+  useUpdateEffect(()=>{
     if (!active){
       setOpen(false)
     }

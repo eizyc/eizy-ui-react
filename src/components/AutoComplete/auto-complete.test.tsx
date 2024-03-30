@@ -1,6 +1,8 @@
 import { config } from 'react-transition-group'
 import { screen, render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
 import { AutoComplete, AutoCompleteProps, DataSourceType } from './auto-complete'
+import { STYLE_PREFIX } from "../../utils/const";
+import { useState } from 'react';
 
 config.disabled = true
 jest.mock('../Icon/icon', () => {
@@ -23,7 +25,7 @@ const renderOption = (item: DataSourceType) => {
 const testProps: AutoCompleteProps = {
   fetchSuggestions: (query) => {return testArray.filter(item => item.value.includes(query))},
   onSelect: jest.fn(),
-  placeholder: 'auto-complete',
+  placeholder: 'auto-complete'
 }
 const testPropsWithCustomRender: AutoCompleteProps = {
   ...testProps,
@@ -32,6 +34,41 @@ const testPropsWithCustomRender: AutoCompleteProps = {
 }
 
 let inputNode: HTMLInputElement
+
+
+describe('test control / un-control of AutoComplete component', ()=>{
+  it('should support defaultValue', async ()=> {
+    render(<AutoComplete {...testProps} defaultValue='a'/>)
+    const el = screen.getByRole('textbox') as HTMLInputElement
+    expect(el.value).toEqual('a')
+    fireEvent.change(el, {target: { value: 'ab'}})
+    await waitFor(() => {
+      expect(screen.getByText('abc')).toBeInTheDocument()
+    })
+    fireEvent.click(screen.getByText('abc'))
+    expect(el.value).toEqual('abc')
+  })
+  it('should support under control', async ()=> {
+    const App = () => {
+      const [value, setValue] = useState('a');
+      const handleChange = (str: string) => {
+        setValue(str);
+      }
+      return <AutoComplete {...testProps} value={value} onChange={handleChange}/>
+    }
+    render(<App />)
+    const el = screen.getByRole('textbox') as HTMLInputElement
+    expect(el.value).toEqual('a')
+    fireEvent.change(el, {target: { value: 'ab'}})
+    await waitFor(() => {
+      expect(screen.getByText('abc')).toBeInTheDocument()
+    })
+    fireEvent.click(screen.getByText('abc'))
+    expect(el.value).toEqual('abc')
+  })
+
+
+})
 
 describe('test AutoComplete component', () => {
   beforeEach(() => {
@@ -46,7 +83,7 @@ describe('test AutoComplete component', () => {
       expect(screen.getByText('ab')).toBeInTheDocument()
     })
     // should have two suggestion items
-    const items = screen.queryAllByText((_, element) => element?.classList.contains('suggestion-item')??false)
+    const items = screen.queryAllByText((_, element) => element?.classList.contains(`${STYLE_PREFIX}-suggestion-item`)??false)
     expect(items.length).toEqual(2)
     //click the first item
     fireEvent.click(screen.getByText('ab'))
@@ -66,13 +103,13 @@ describe('test AutoComplete component', () => {
 
     // arrow down
     fireEvent.keyDown(inputNode, { keyCode: 40 })
-    expect(firstResult).toHaveClass('is-active')
+    expect(firstResult).toHaveClass(`${STYLE_PREFIX}-active`)
     //arrow down 
     fireEvent.keyDown(inputNode, { keyCode: 40 })
-    expect(secondResult).toHaveClass('is-active')
+    expect(secondResult).toHaveClass(`${STYLE_PREFIX}-active`)
     //arrow up
     fireEvent.keyDown(inputNode, { keyCode: 38 })
-    expect(firstResult).toHaveClass('is-active')
+    expect(firstResult).toHaveClass(`${STYLE_PREFIX}-active`)
     // press enter
     fireEvent.keyDown(inputNode, { keyCode: 13 })
     expect(testProps.onSelect).toHaveBeenCalledWith({value: 'ab', number: 11})

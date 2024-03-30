@@ -23,6 +23,17 @@ export const SimpleAutoComplete= {
   }
 }
 
+export const DeafultValueAutoComplete= {
+  args: {
+    block: true,
+    fetchSuggestions: (query: string) => {
+      return lakers.filter(name => name.includes(query)).map(name => ({value: name}))
+    },
+    defaultValue: 'james',
+    placeholder: 'Enter the Name of a Lakers player'
+  }
+}
+
 export const CustomAutoComplete = {
   args: {
     block: true,
