@@ -59,6 +59,61 @@ $error:         $error-200 !default;
 $light:         $neutral-100 !default;
 $dark:          $neutral-800 !default;
 
+// Font color
+$color-text: rgba(0, 0, 0, 0.88);
+$color-text-secondary: rgba(0, 0, 0, 0.65);
+$color-text-tertiary: rgba(0, 0, 0, 0.45);
+$color-text-quaternary: rgba(0, 0, 0, 0.25);
+$color-fill: rgba(0, 0, 0, 0.15);
+$color-fill-secondary: rgba(0, 0, 0, 0.06);
+$color-fill-tertiary: rgba(0, 0, 0, 0.04);
+$color-fill-quaternary: rgba(0, 0, 0, 0.02);
+
+$margin-xxs: 0.25rem;
+$margin-xs: 0.5rem;
+$margin-sm: 0.75rem;
+$margin: 1rem;
+$margin-md: 1.25rem;
+$margin-lg: 1.5rem;
+$margin-xl: 2rem;
+$margin-xxl: 3rem;
+
+$padding-xxs: 0.25rem;
+$padding-xs: 0.5rem;
+$padding-sm: 0.75rem;
+$padding: 1rem;
+$padding-md: 1.25rem;
+$padding-lg: 1.5rem;
+$padding-xl: 2rem;
+$padding-xxl: 3rem;
+
+$margin-xxs: 0.25rem;
+$margin-xs: 0.5rem;
+$margin-sm: 0.75rem;
+$margin: 1rem;
+$margin-md: 1.25rem;
+$margin-lg: 1.5rem;
+$margin-xl: 2rem;
+$margin-xxl: 3rem;
+
+$height-xxs: 0.25rem;
+$height-xs: 0.5rem;
+$height-sm: 0.75rem;
+$height: 1rem;
+$height-md: 1.25rem;
+$height-lg: 1.5rem;
+$height-xl: 2rem;
+$height-xxl: 3rem;
+
+$width-xxs: 0.25rem;
+$width-xs: 0.5rem;
+$width-sm: 0.75rem;
+$width: 1rem;
+$width-md: 1.25rem;
+$width-lg: 1.5rem;
+$width-xl: 2rem;
+$width-xxl: 3rem;
+
 $theme-colors: 
 (
   "primary":    $primary,
@@ -76,15 +131,12 @@ $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Rob
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 
-// Font color
-$font-color: #181818!default;
-$font-color-light: $white!default;
-
 
 // Font size
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-sm:                $font-size-base * .875 !default;
+$font-size-xs:                $font-size-base * .75 !default;
 $font-size-root:              null !default;
 
 // Font Weight
@@ -116,11 +168,11 @@ $link-hover-decoration:                   underline !default;
 
 // Body
 $body-bg:                   $white !default;
-$body-color:                $font-color !default;
+$body-color:                $color-text !default;
 $body-text-align:           null !default;
 
 // Spacing
-$spacer: 1rem !default;
+$spacer: $margin !default;
 
 // Hr 
 $hr-margin-y: $spacer !default;
@@ -129,7 +181,7 @@ $hr-height: 1px !default;
 $hr-opacity: .25 !default;
 
 // Paragraphs
-$paragraph-margin-bottom:   1rem !default;
+$paragraph-margin-bottom:   $margin !default;
 
 // Headings
 $headings-margin-bottom:      math.div($spacer, 2) !default;
@@ -178,7 +230,7 @@ $sub-sup-font-size: .75em !default;
 $caption-color: $neutral-600 !default;
 
 // legend
-$legend-margin-bottom: .5rem !default;
+$legend-margin-bottom: $margin-xs !default;
 $legend-font-size: 1.5rem !default;
 $legend-font-weight: null !default;
 
@@ -192,23 +244,23 @@ $mark-bg: #fcf8e3 !default;
 
 // Button
 // Button Base Style
-$btn-margin-bottom:           1rem!default;
+$btn-margin-bottom:           $margin !default;
 $btn-font-weight:             400;
-$btn-padding-y:               .375rem !default;
-$btn-padding-x:               .75rem !default;
+$btn-padding-y:               $padding-xs !default;
+$btn-padding-x:               $padding-sm !default;
 $btn-font-family:             $font-family-base !default;
 $btn-font-size:               $font-size-base !default;
 $btn-line-height:             $line-height-base !default;
 $btn-outlint-offset:          .2rem !default;
 
 //Button responsive padding and font size
-$btn-padding-y-sm:            .25rem !default;
-$btn-padding-x-sm:            .5rem !default;
+$btn-padding-y-sm:            $padding-xxs !default;
+$btn-padding-x-sm:            $padding-xs !default;
 $btn-font-size-sm:            $font-size-sm !default;
 $btn-outlint-offset-sm:       .175rem !default;
 
-$btn-padding-y-lg:            .5rem !default;
-$btn-padding-x-lg:            1rem !default;
+$btn-padding-y-lg:            $padding-xs !default;
+$btn-padding-x-lg:            $padding !default;
 $btn-font-size-lg:            $font-size-lg !default;
 $btn-outlint-offset-lg:       .225rem !default;
 
@@ -252,21 +304,21 @@ $submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
 $submenu-menu-offset: 8px;
 
 //Input
-$input-margin-bottom:                   $btn-margin-bottom !default;
-$input-padding-y:                       $btn-padding-y !default;
-$input-padding-x:                       $btn-padding-x !default;
-$input-font-family:                     $btn-font-family !default;
-$input-font-size:                       $btn-font-size !default;
+$input-margin-bottom:                   $margin !default;
+$input-padding-y:                       $padding-xs !default;
+$input-padding-x:                       $padding-sm !default;
+$input-font-family:                     $font-family-base !default;
+$input-font-size:                       $font-size-base !default;
 $input-font-weight:                     $font-weight-base !default;
-$input-line-height:                     $btn-line-height !default;
+$input-line-height:                     $line-height-base !default;
 
-$input-padding-y-sm:                    $btn-padding-y-sm !default;
-$input-padding-x-sm:                    $btn-padding-x-sm !default;
-$input-font-size-sm:                    $btn-font-size-sm !default;
+$input-padding-y-sm:                    $padding-xxs !default;
+$input-padding-x-sm:                    $padding-xs !default;
+$input-font-size-sm:                    $font-size-sm !default;
 
-$input-padding-y-lg:                    $btn-padding-y-lg !default;
-$input-padding-x-lg:                    $btn-padding-x-lg !default;
-$input-font-size-lg:                    $btn-font-size-lg !default;
+$input-padding-y-lg:                    $padding-xs !default;
+$input-padding-x-lg:                    $padding !default;
+$input-font-size-lg:                    $font-size-lg !default;
 
 $input-bg:                              $white !default;
 $input-disabled-bg:                     $neutral-200 !default;
@@ -304,7 +356,6 @@ $input-plaintext-color:                 $body-color !default;
 
 $input-height-border:                   $input-border-width * 2 !default;
 
-
 $input-transition:                      border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
 
 $input-group-addon-color:               $input-color !default;
@@ -336,6 +387,51 @@ $upload-item-prefix-icon-offset:        6px !default;
 $upload-item-progress-offset-bottom:    calc($progress-font-size * -0.5 * $progress-line-height) !default;
 $upload-item-progress-offset-left:      24px !default;
 
+
+// Select
+$select-bg:                              $white !default;
+$select-disabled-bg:                     $neutral-200 !default;
+$select-disabled-color:                  $neutral-300 !default;
+$select-disabled-border-color:           null !default;
+$select-disabled-cursor:                 not-allowed !default;
+
+$select-mutiple-item-bg:                $neutral-200 !default;
+$select-mutiple-item-color:             $color-text !default;
+$select-mutiple-item-border-radius:     $border-radius-sm !default;
+$select-mutiple-item-padding:           $padding-xs math.div($padding-xs, 2) !default;
+
+$select-margin-bottom:                   $margin !default;
+$select-padding-y:                       $padding-xs !default;
+$select-padding-x:                       $padding-sm !default;
+$select-font-family:                     $font-family-base !default;
+$select-font-size:                       $font-size-base !default;
+$select-font-weight:                     $font-weight-base !default;
+$select-line-height:                     $line-height-base !default;
+$select-height:                          2rem !default;
+$select-height-sm:                       1.5rem !default;
+$select-height-lg:                       2.5rem !default;
+
+$select-padding-x-sm:                    $padding-xs !default;
+$select-font-size-sm:                    $font-size-sm !default;
+
+$select-padding-y-lg:                    $padding-xs !default;
+$select-padding-x-lg:                    $padding !default;
+$select-font-size-lg:                    $font-size-lg !default;
+
+$select-color:                           $neutral-700 !default;
+$select-placeholder-color:               $neutral-300 !default;
+$select-border-color:                    $neutral-400 !default;
+$select-border-width:                    $border-width !default;
+$select-box-shadow:                      $box-shadow-lg !default;
+
+$select-border-radius:                   $border-radius !default;
+$select-border-radius-lg:                $border-radius-lg !default;
+$select-border-radius-sm:                $border-radius-sm !default;
+
+$select-transition:                      border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
+$select-icon-size:                       12px;
+
+$select-item-margin:                     $margin-xxs;
 
 
 

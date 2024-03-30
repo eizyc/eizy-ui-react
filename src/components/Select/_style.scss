@@ -1,0 +1,151 @@
+@import '../../styles/variables';
+
+$prefix-select: #{$prefix}-select;
+
+.#{$prefix-select} {
+  position: relative;
+  width: 100%;
+  font-family: $select-font-family;
+  font-size: $select-font-size;
+  font-weight: $select-font-weight;
+  line-height: $select-line-height;
+  color: $select-color;
+  background-color: $select-bg;
+  background-clip: padding-box;
+  border: $select-border-width solid $select-border-color;
+  border-radius: $select-border-radius;
+  box-shadow: $select-box-shadow;
+  transition: $select-transition;
+  min-height: $select-height;
+  display: flex;
+  flex-direction: row;
+  padding-right: calc($select-padding-x);
+  .#{$prefix-select}-arrow {
+    display: flex;
+    align-items: center;
+    transform: none;
+    transition: transform .25s ease-in-out;
+    &.#{$prefix}-open{
+      transform: rotate(180deg);
+    }
+  }  
+  .#{$prefix}-input-affix-wrapper:has(input:disabled, input[readonly]) {
+    cursor: inherit;
+    color: $select-color;
+    background-color: $select-bg;
+  }
+  &-single{
+    padding-left: $margin-sm;
+    &.#{$prefix}-open{
+      .#{$prefix-select}-selection-item {
+        color: $select-placeholder-color;
+      }
+    }
+    .#{$prefix-select}-selection-search {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  &-multiple{
+    padding-left: $margin-xxs;
+    .#{$prefix-select}-selection-item {
+      background: $select-mutiple-item-bg;
+      border-radius: $select-mutiple-item-border-radius;
+      padding-inline: $select-mutiple-item-padding;
+      height: calc($select-height - $select-border-width*2 - $select-item-margin*2);
+      display: flex;
+      align-items: center;
+      &-content{
+        margin-right: 4px;
+        font-size: $font-size-xs;
+      }
+      &-wrapper{
+        display: flex;
+        align-self: center;
+        flex: none;
+        margin-block: $select-item-margin/2;
+        margin-inline-end: $select-item-margin;
+      }
+      .#{$prefix}-icon{
+        color: $neutral-500;
+        cursor: pointer;
+        &:hover {
+          color: $neutral-800;
+        }
+      }
+    }
+  }
+  &-selection{
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
+    flex-grow: 1;
+    padding: $select-item-margin/2 0;
+    &-search {
+      position: relative;
+      flex-grow: 0;
+      input {
+        margin: 0;
+        padding: 0;
+        background: 0 0;
+        border: none;
+        outline: none;
+        appearance: none;
+        font-family: inherit;
+        height: 1rem;
+        min-width: $width-xxs;
+        font-size: $font-size-xs;
+      }
+      &-mirror{
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+  &-options-wrapper{
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + $margin-xxs);
+    left: 0;
+    right: 0;
+    background-color: $select-bg;
+    border-radius: $select-border-radius;
+    box-shadow: $select-box-shadow;
+    list-style: none;
+    box-shadow: $select-box-shadow;
+    ul {
+      padding: $padding-xxs;
+      margin: 0;
+    }
+  }
+  &-option{
+    padding: $padding-xxs $padding-xs;
+    background: none;
+    transition: all .28s;
+    border-radius: $select-border-radius;
+    display: flex;
+    align-items: center;
+    &:hover{
+      background: $neutral-200;
+    }
+    &.#{$prefix}-selected{
+      font-weight: $font-weight-bold;
+      background: rgba($color: $primary, $alpha: 0.2);
+    }
+    &-content{
+      flex: 1;
+      font-weight: inherit;
+    }
+    .#{$prefix}-icon{
+      color: $primary;
+    }
+  }
+}
+
+
