@@ -3,7 +3,7 @@ import Icon from '../Icon/icon'
 import { STYLE_PREFIX } from '../../utils/const';
 import classnames from 'classnames';
 
-const prefixCls = `${STYLE_PREFIX}-progress`
+export const prefixCls = `${STYLE_PREFIX}-progress`
 
 const format = (num:string|number):string => Number.isNaN(num)?`${num}`:`${num}px`
 
