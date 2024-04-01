@@ -1,0 +1,50 @@
+@use "sass:math";
+@import '../../styles/variables';
+@import '../../styles/mixins/switcher';
+
+$prefix-switcher: #{$prefix}-switcher;
+
+.#{$prefix}-switcher {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  height: $switcher-height;
+  border: 0;
+  background-color: $switcher-bg;
+  transition: all .28s;
+  min-width: $switcher-min-width;
+  border-radius: $switcher-border-radius;
+  &:focus{
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+  @include switcher-handler($switcher-handle-size);
+  @include switcher-inner($switcher-height);
+  &.#{$prefix}-disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    & * {
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+  }
+}
+
+
+.#{$prefix-switcher}-size-sm {
+    height: $switcher-height-sm;
+    min-width: $switcher-min-width-sm;
+    @include switcher-handler($switcher-handle-size-sm);
+    @include switcher-inner($switcher-height-sm);
+}
+
+.#{$prefix-switcher}-size-lg {
+    height: $switcher-height-lg;
+    min-width: $switcher-min-width-lg;
+    @include switcher-handler($switcher-handle-size-lg);
+    @include switcher-inner($switcher-height-lg);
+}
+@include switcher-checked($switcher-handle-size, $switcher-height, #{$prefix}-switcher);
+@include switcher-checked($switcher-handle-size-sm, $switcher-height-sm, #{$prefix-switcher}-size-sm );
+@include switcher-checked($switcher-handle-size-lg, $switcher-height-lg, #{$prefix-switcher}-size-lg);

@@ -429,9 +429,42 @@ $select-border-radius-lg:                $border-radius-lg !default;
 $select-border-radius-sm:                $border-radius-sm !default;
 
 $select-transition:                      border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
-$select-icon-size:                       12px;
+$select-icon-size:                       12px !default;
 
-$select-item-margin:                     $margin-xxs;
+$select-item-margin:                     $margin-xxs !default;
+
+
+
+// Switcher
+
+$switcher-bg:                            $color-text-quaternary !default;
+$switcher-bg-checked:                    $primary !default;
+
+$switcher-border-radius:                 100px !default;
+
+
+$switcher-height:                        22px !default;
+$switcher-height-lg:                     28px !default;
+$switcher-height-sm:                     16px !default;
+
+$switcher-min-width:                     44px !default;
+$switcher-min-width-lg:                  56px !default;
+$switcher-min-width-sm:                  28px !default;
+
+$switcher-handle-color:                  $white !default;
+$switcher-handle-padding:                2px !default;
+$switcher-handle-size:                   $switcher-height - $switcher-handle-padding*2 !default;
+$switcher-handle-size-lg:                $switcher-height-lg - $switcher-handle-padding*2 !default;
+$switcher-handle-size-sm:                $switcher-height-sm - $switcher-handle-padding*2 !default;
+
+$switcher-font-size:                     $font-size-xs !default;
+
+$switcher-inner-color:                   $white !default;
+
+
+
+
+
 
 
 

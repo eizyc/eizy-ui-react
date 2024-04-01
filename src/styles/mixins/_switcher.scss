@@ -1,0 +1,86 @@
+@import '../../styles/variables';
+$prefix-switcher: #{$prefix}-switcher;
+
+@mixin switcher-handler($handle-size) {
+  .#{$prefix-switcher}-handle{
+    position: absolute;
+    width: $handle-size;
+    height: $handle-size;
+    top: $switcher-handle-padding;
+    left: $switcher-handle-padding;
+    transition: all .28s ease-in-out;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      background-color: $switcher-handle-color;
+      transition: all .28s ease-in-out;
+    }
+  }
+}
+
+@mixin switcher-inner($height) {
+  .#{$prefix-switcher} {
+    &-inner{
+      display: block;
+      font-size: $switcher-font-size;
+      color: $switcher-inner-color;
+      border-radius: $switcher-border-radius;
+      padding-inline-start: $height + $switcher-handle-padding;
+      padding-inline-end: math.div($height, 2) + $switcher-handle-padding;
+      height: 100%;
+      overflow: hidden;
+      transition: all .28s ease-in-out;
+      &-checked{
+        margin-inline-end: calc(100% + $height + $switcher-handle-padding);
+        margin-inline-start: calc(-100% - $height - $switcher-handle-padding);
+        transition: margin-inline-start .28s ease-in-out, margin-inline-end .28s ease-in-out;
+      }
+      &-unchecked{
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-top: -$height;
+        transition: margin-inline-start .28s ease-in-out, margin-inline-end .28s ease-in-out;
+      }
+      & > * {
+        display: block;
+        height: 100%;
+        line-height: $height;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@mixin switcher-checked($handle-size, $height, $class) {
+  .#{$class} {
+    &.#{$prefix-switcher}-checked {
+      background-color: $switcher-bg-checked;
+      &:focus {
+        box-shadow: 0 0 0 2px #e6f7ff;
+      }
+      &:focus:hover {
+        box-shadow: none;
+      }
+      .#{$prefix-switcher}-handle {
+        left: calc(100% - $handle-size - $switcher-handle-padding);
+      }
+      .#{$prefix-switcher}-inner {
+        padding-inline-start: math.div($height, 2) + $switcher-handle-padding;
+        padding-inline-end: $height + $switcher-handle-padding;
+        &-checked{
+          margin-inline-start: 0;
+          margin-inline-end: 0;
+        }
+        &-unchecked{
+          margin-inline-start: calc(100% + $height + $switcher-handle-padding);
+          margin-inline-end: calc(-100% - $height - $switcher-handle-padding);
+        }
+      }
+    }
+  }
+}
