@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+$prefix-avatar: #{$prefix}-avatar;
+
+.#{$prefix-avatar} {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $avatar-color;
+  font-size: $avatar-font-size;
+  line-height: 1.5715;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: $avatar-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background: $avatar-bg;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  & > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &-square {
+    border-radius: $avatar-border-radius;
+  }
+  &-image {
+    background: transparent;
+  }
+  &-string {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
+  }
+
+  &-group{
+    &>*:not(:first-child) {
+      margin-inline-start: $avatar-group-overlapping;
+    }
+    .#{$prefix-avatar}{
+      border: $avatar-group-border;
+    }
+  }
+
+
+
+
+
+  &-sm{
+    width: $avatar-size-sm;
+    height: $avatar-size-sm;
+    line-height: $avatar-size-sm;
+  }
+  &-lg{
+    width: $avatar-size-lg;
+    height: $avatar-size-lg;
+    line-height: $avatar-size-lg;
+  }
+}
