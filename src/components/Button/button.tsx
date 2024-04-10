@@ -1,4 +1,4 @@
-import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren } from 'react';
+import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
 
@@ -23,7 +23,7 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps =Partial<NativeButtonProps & AnchorButtonProps>
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
+export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>((props, ref) => {
     const {buttonType, className, disabled, size, ghost, children, href, ...restProps} = props
     // button btn-lg btn-primary
     const classes = classnames(prefixCls, className, {
@@ -39,10 +39,10 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
         );
     } else {
         return (
-            <button  {...restProps} className={classes} disabled={disabled}>{children}</button>
+            <button ref={ref} {...restProps} className={classes} disabled={disabled}>{children}</button>
         )
     }
-}
+})
 
 Button.defaultProps = {
     disabled: false,
