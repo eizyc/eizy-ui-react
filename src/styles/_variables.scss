@@ -478,6 +478,29 @@ $avatar-group-overlapping:               -8px !default;
 $avatar-group-border:                    $white 1px solid !default;
 
 
+// Tooltip
+
+$tooltip-bg:                             $color-text !default;
+$tooltip-color:                          $white !default;
+$tooltip-max-width:                      200px !default;
+$tooltip-gap:                            4px !default;
+
+// arrow height
+$tooltip-arrow-size:                     8px !default;
+$tooltip-arrow-offset-horizontal:        12px !default;
+$tooltip-arrow-offset-vertical:          8px !default;
+
+$tooltip-inner-min-width:                30px !default;
+$tooltip-inner-padding:                  6px 8px !default;
+$tooltip-inner-border-radius:            4px !default;
+$tooltip-inner-box-shadow:               $box-shadow-sm !default;
+
+
+
+
+
+
+
 
 
 
