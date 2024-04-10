@@ -21,10 +21,10 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
 }
 
 export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>((props, ref) => {
-    const { className, disabled, block, size, prefix, suffix, prepend, append, defaultValue, onChange, value, ...restProps } = props
+    const { className, disabled, block, size, prefix, suffix, prepend, append, defaultValue, onChange, value: pValue, ...restProps } = props
 
-    const [ _value, setValue ] = useMergedState<string>(defaultValue, {
-      value,
+    const [ value, setValue ] = useMergedState<string>(defaultValue, {
+      value: pValue,
       defaultValue
     });
 
@@ -51,7 +51,7 @@ export const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>
           ref={ref}
           className={`${prefixCls}-inner`}
           disabled={disabled}
-          value={_value}
+          value={value}
           onChange={onChangeHandler}
           {...restProps}
         />
