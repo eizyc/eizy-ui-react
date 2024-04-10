@@ -47,9 +47,11 @@ export default function useMergedState<T, R = T>(
   })
 
     // when `value` prop has real value (no undefined), it's control mode, so use the value from prop, otherwise use the innerValue
-    const mergedValue:any = value !== undefined ? value : innerValue;
+    const mergedValue:any = hasValue(value)? value : innerValue;
     // if has postState func, call it to format mergedValue
     const postMergedValue = (postState?.(mergedValue)??mergedValue);
+
+
 
     // ====================== Change ======================
     const onChangeFn = useEvent(onChange);
@@ -65,9 +67,7 @@ export default function useMergedState<T, R = T>(
 
     // Sync value back to `undefined` when it from control to un-control
     useLayoutUpdateEffect(() => {
-      if (!hasValue(value)) {
         setInnerValue(value as T);
-      }
     }, [value]);
 
 
