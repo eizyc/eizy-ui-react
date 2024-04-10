@@ -31,3 +31,15 @@ export const useClickOutside = (ref: RefObject<HTMLElement>, handler: Function) 
     }
   }, [ref, handler])
 }
+
+export const useListener = (node: Window|HTMLBaseElement|Document, eventName: string, callback: EventListenerOrEventListenerObject, condition: boolean) => {
+  useEffect(() => {
+    if (condition) {
+      node.addEventListener(eventName, callback);
+
+      return () => {
+        node.removeEventListener(eventName, callback, false);
+      }
+    }
+  }, [condition]);
+}
