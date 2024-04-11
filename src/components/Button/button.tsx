@@ -1,11 +1,12 @@
 import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 import classnames from 'classnames'
 import { STYLE_PREFIX } from "../../utils/const";
+import { Status } from '../../type';
 
 const prefixCls = `${STYLE_PREFIX}-btn`
 
 type ButtonSize = 'lg'|'md'|'sm'
-type ButtonType = 'default'|'primary'|'secondary'|'tertiary'|'error'|'link'|'success'|'warning'
+type ButtonType = 'primary'|'secondary'|'tertiary'|'link'| Status
 
 export interface BaseButtonProps {
     className?: string;

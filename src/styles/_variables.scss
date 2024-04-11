@@ -87,15 +87,6 @@ $padding-lg: 1.5rem;
 $padding-xl: 2rem;
 $padding-xxl: 3rem;
 
-$margin-xxs: 0.25rem;
-$margin-xs: 0.5rem;
-$margin-sm: 0.75rem;
-$margin: 1rem;
-$margin-md: 1.25rem;
-$margin-lg: 1.5rem;
-$margin-xl: 2rem;
-$margin-xxl: 3rem;
-
 $height-xxs: 0.25rem;
 $height-xs: 0.5rem;
 $height-sm: 0.75rem;
@@ -114,7 +105,13 @@ $width-lg: 1.5rem;
 $width-xl: 2rem;
 $width-xxl: 3rem;
 
-$theme-colors: 
+$base-theme-colors: (
+  "success":    $success,
+  "warning":    $warning,
+  "error":      $error
+);
+
+$icon-theme-colors: 
 (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -123,7 +120,21 @@ $theme-colors:
   "warning":    $warning,
   "error":      $error,
   "light":      $light,
-  "dark":       $dark
+  "dark":       $dark,
+);
+
+$colors:
+(
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,    
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan
 );
 
 // Font Family
@@ -134,9 +145,9 @@ $font-family-base:            $font-family-sans-serif !default;
 
 // Font size
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                $font-size-base * 1.25 !default;
-$font-size-sm:                $font-size-base * .875 !default;
-$font-size-xs:                $font-size-base * .75 !default;
+$font-size-lg:                $font-size-base * 1.25 !default; //20px
+$font-size-sm:                $font-size-base * .875 !default; //14px
+$font-size-xs:                $font-size-base * .75 !default; // 12px
 $font-size-root:              null !default;
 
 // Font Weight
