@@ -507,7 +507,16 @@ $tooltip-inner-border-radius:            4px !default;
 $tooltip-inner-box-shadow:               $box-shadow-sm !default;
 
 
+// Tag
 
+$tag-border-radius:                      4px !default;
+$tag-border-width:                       1px !default;
+$tag-padding:                            0 calc( $padding-xs - $tag-border-width) !default;
+$tag-font-size:                          $font-size-xs !default;
+$tag-margin-right:                       $margin-xs !default;  
+$tag-line-height:                        $line-height-base !default;  
+$tag-icon-offset:                        $margin-xxs !default;  
+$tag-color:                              $color-text;
 
 
 

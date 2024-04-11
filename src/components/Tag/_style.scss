@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+
+.#{$prefix}-tag {
+  padding: $tag-padding;
+  border-radius: $tag-border-radius;
+  border-width: $tag-border-width;
+  border-style: solid;
+  font-size: $tag-font-size;
+  margin-right: $tag-margin-right;
+  transition: all .28s;
+  display: inline-block;
+  line-height: $tag-line-height;
+  white-space: nowrap;
+  color: $tag-color;
+  background-color: rgba($tag-color, .08);
+  border-color: rgba($tag-color, .28);
+}
+
+
+@each $key, $val in $colors {
+  .#{$prefix}-tag-#{$key} {
+    color: $val;
+    background-color: rgba($val, .1);
+    border-color: rgba($val, .4);
+  }
+}
+@each $key, $val in $base-theme-colors {
+  .#{$prefix}-tag-#{$key} {
+    color: $val;
+    background-color: rgba($val, .08);
+    border-color: rgba($val, .28);
+  }
+}
+
+
+.#{$prefix}-tag {
+  &-borderless{
+    border-color: transparent;
+  }
+  &-has-color{
+    color: white;
+    border: transparent;
+  }
+  &-prepend-icon{
+    margin-right: $tag-icon-offset;
+  }
+  &-append-icon{
+    margin-left: $tag-icon-offset;
+    cursor: pointer;
+    transition: all .08s;
+    opacity: .68;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
