@@ -1,10 +1,30 @@
 # eizy-ui-react
 Support Components:
+- AutoComplete
+- Avatar
 - Button
-- Menu
+- Empty
+- Icon
 - Input
+- Menu
+- Message
+- Overlay
+- Progress
 - Select
-- Form
+- Switcher
+- Tag
+- Tooltip
+- Upload
+
+
+
+
+
+
+
+
+
+
 
 
 ## Some Useful Links
