@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { render, screen } from '@testing-library/react'
-import { TooltipProps, prefixCls } from './tooltip'
-import Tooltip from './tooltip'
+import { TooltipProps } from './tooltip'
 
-const defaultProps:TooltipProps = {
 
-}
+
+describe('test control / un-control of Tooltip component',()=>{
+  it('should render the corrent default tooltip', ()=> {
+
+  })
+})

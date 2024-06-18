@@ -2,8 +2,14 @@ import { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react'
 import { InputProps, prefixCls } from './input'
 import Input from './input'
-import { STYLE_PREFIX } from "../../utils/const";
 import Icon from '../Icon/icon';
+
+jest.mock('../Icon/icon', () => {
+  return (props: any) => {
+    const {onClick, icon, ...restProps} = props
+    return <span onClick={onClick} {...restProps}>{icon}</span>
+  }
+})
 
 const defaultProps:InputProps = {
   defaultValue: 'input',
@@ -64,7 +70,7 @@ describe('test input component', () => {
 
     it('should render prefix and suffix element on prefix/suffix property', () => {
       render(<Input prefix={<Icon icon='dollar' />} suffix="USD"/>)
-      const icon = screen.getByText('', {selector: `.${STYLE_PREFIX}-icon`})
+      const icon = screen.getByText('dollar')
       expect(icon).toBeInTheDocument()
       expect(screen.getByText('USD')).toBeInTheDocument()
     })
