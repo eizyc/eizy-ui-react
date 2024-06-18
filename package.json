@@ -2,6 +2,9 @@
   "name": "eizy-ui-react",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -9,27 +12,28 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.68",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "axios": "^1.6.5",
+    "classnames": "^2.3.2",
     "react-transition-group": "^4.4.5",
     "resize-observer-polyfill": "^1.5.1",
-    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "add": "node scripts/add.mjs",
-    "test hooks": "npm run test src/utils/hooks/test"
+    "test hooks": "npm run test src/utils/hooks/test",
+    "clean": "rimraf ./dist",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "sass ./src/styles/index.scss ./dist/index.css",
+    "build": "npm run clean && npm run build-ts && npm run build-css"
   },
   "eslintConfig": {
     "extends": [
@@ -62,19 +66,26 @@
     "@storybook/react": "^7.6.8",
     "@storybook/react-webpack5": "^7.6.8",
     "@storybook/test": "^7.6.8",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.68",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "@types/classnames": "^2.3.1",
     "@types/react-transition-group": "^4.4.10",
-    "axios": "^1.6.5",
     "chalk": "^5.3.0",
-    "classnames": "^2.3.2",
     "eslint-plugin-storybook": "^0.6.15",
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
     "prop-types": "^15.8.1",
+    "rimraf": "^5.0.7",
     "sass": "^1.69.5",
     "storybook": "^7.6.8",
-    "webpack": "^5.89.0"
+    "webpack": "^5.89.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "jest": {
     "transformIgnorePatterns": [

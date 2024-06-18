@@ -113,17 +113,17 @@ const Message: FC<PropsWithChildren<MessageProps>> = (props) => {
           key={item.id}
           timeout={500}
           classNames="message"
-          onExit={(e:any) => {
+          onExit={(e?: HTMLElement) => {
             if (!e) return;
             e.style.height = `${e.scrollHeight}px`;
           }}
-          onExiting={(e:any) => {
+          onExiting={(e?:HTMLElement) => {
             if (!e) return;
-            e.style.height = 0;
+            e.style.height = '0';
           }}
-          onExited={(e:any) => {
+          onExited={(e?:HTMLElement) => {
             if (!e) return;
-            e.style.height = 0;
+            e.style.height = '0';
           }}
       >
           <MessageWrapper {...item} />

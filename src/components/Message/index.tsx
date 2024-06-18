@@ -1,3 +1,3 @@
-import InternalMessage from './message'
+import Message from './message'
 
-export default InternalMessage;
+export default Message;

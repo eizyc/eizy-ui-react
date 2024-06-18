@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../../styles/variables';
 
 $prefix-tooltip: #{$prefix}-tooltip;
@@ -78,12 +79,12 @@ html {
     }
     &-rightTop, &-leftTop {
       .#{$prefix-tooltip}-arrow{
-        top: $tooltip-arrow-offset-vertical + $tooltip-arrow-size/2;
+        top: $tooltip-arrow-offset-vertical + math.div($tooltip-arrow-size, 2);
       }
     }
     &-rightBottom, &-leftBottom {
       .#{$prefix-tooltip}-arrow{
-        bottom: $tooltip-arrow-offset-vertical +$tooltip-arrow-size/2;
+        bottom: $tooltip-arrow-offset-vertical + math.div($tooltip-arrow-size, 2);
       }
     }
     &-bottom {
