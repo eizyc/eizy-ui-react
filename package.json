@@ -35,7 +35,8 @@
     "lint": "eslint --ext js,ts,tsx src",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "sass ./src/styles/index.scss ./dist/index.css",
-    "build": "npm run clean && npm run build-ts && npm run build-css"
+    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -80,6 +81,7 @@
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
+    "husky": "^9.0.11",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
