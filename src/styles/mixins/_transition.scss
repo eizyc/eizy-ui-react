@@ -24,3 +24,24 @@
     transform-origin: $origin;
   }
 }
+
+
+@mixin message-animation(
+  $time: 500ms
+) {
+  .message-enter {
+    opacity: 0;
+  }
+  .message-enter-active {
+    opacity: 1;
+    transition: all $time ease-in;
+  }
+  .message-exit {
+    opacity: 1;
+  }
+  .message-exit-active {
+    opacity: 0;
+    height: 0;
+    transition: all $time ease-in;
+  }
+}

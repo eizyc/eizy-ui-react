@@ -519,9 +519,23 @@ $tag-icon-offset:                        $margin-xxs !default;
 $tag-color:                              $color-text;
 
 
+// Message
+$message-theme-colors: (
+  "success":    $success,
+  "warning":    $warning,
+  "error":      $error,
+  "info":       $info,
+  "loading":    $blue
+);
 
+$message-top:                            $height-xs !default;                         
+$message-notice-padding:                 10px 16px !default;
+$message-notice-border-radius:           4px !default;
+$message-notice-box-shadow:              0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05) !default;
+$message-notice-bg:                      $white !default;
+$message-notice-gap:                     $margin-xs !default;
 
-
+$message-notice-icon-margin-right:       $margin-xs !default;
 
 
 

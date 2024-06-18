@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.#{$prefix}-message {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 1010;
+  top: $message-top;
+  pointer-events: none;
+  &-notice{
+    display: inline-block;
+    &-wrapper{
+      text-align: center;
+      padding: $message-notice-gap;
+    }
+    &-content{
+      background: $message-notice-bg;
+      box-shadow: $message-notice-box-shadow;
+      padding: $message-notice-padding;
+      border-radius: $message-notice-border-radius;
+      text-align: left;
+      pointer-events: all;
+    }
+    .#{$prefix}-icon {
+      margin-right: $message-notice-icon-margin-right;
+    }
+  }
+}
+
+@each $key, $val in $message-theme-colors {
+  .#{$prefix}-message-notice-#{$key} {
+    .#{$prefix}-icon {
+      color: $val;
+    }
+  }
+}
