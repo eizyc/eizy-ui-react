@@ -40,7 +40,7 @@ export const SwitcherWithSize = {
 /**
  * ### How to import
  * ~~~js
- * import { Switcher } from 'eizy-ui-react'
+ * import { Switcher } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Switcher> = {

@@ -44,7 +44,7 @@ export const buttonWithType = {
 /**
  * ### How to import
  * ~~~js
- * import { Button } from 'eizy-ui-react'
+ * import { Button } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Button> = {

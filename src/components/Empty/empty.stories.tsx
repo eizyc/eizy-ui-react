@@ -37,7 +37,7 @@ export const ExampleWithImage = {
 /**
  * ### How to import
  * ~~~js
- * import { Empty } from 'eizy-ui-react'
+ * import { Empty } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Empty> = {

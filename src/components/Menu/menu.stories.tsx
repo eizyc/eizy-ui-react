@@ -92,7 +92,7 @@ export const MenuWithDefaultOpenSubMenus: Story =  {
 /**
  * ### How to import
  * ~~~js
- * import { Menu, MenuItem, SubMenu } from 'eizy-ui-react'
+ * import { Menu, MenuItem, SubMenu } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Menu> = {

@@ -63,7 +63,7 @@ CustomedInput.storyName = 'Input with prefix and suffix'
 /**
  * ### How to import
  * ~~~js
- * import { Input } from 'eizy-ui-react'
+ * import { Input } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Input> = {

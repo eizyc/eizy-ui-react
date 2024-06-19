@@ -70,7 +70,7 @@ export const customColor = () => {
 /**
  * ### How to import
  * ~~~js
- * import { Tag } from 'eizy-ui-react'
+ * import { Tag } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Tag> = {

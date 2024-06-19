@@ -93,7 +93,7 @@ const storyWrapper = (stroyFn: any) => (
 /**
  * ### How to import
  * ~~~js
- * import { Select } from 'eizy-ui-react'
+ * import { Select } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Select> = {

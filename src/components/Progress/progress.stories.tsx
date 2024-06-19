@@ -40,7 +40,7 @@ export const ProgressWithSize = {
 /**
  * ### How to import
  * ~~~js
- * import { Progress } from 'eizy-ui-react'
+ * import { Progress } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Progress> = {

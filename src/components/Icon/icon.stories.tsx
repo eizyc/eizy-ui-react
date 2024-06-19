@@ -46,7 +46,7 @@ export const iconWithTheme = {
 /**
  * ### How to import
  * ~~~js
- * import { Icon } from 'eizy-ui-react'
+ * import { Icon } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Icon> = {

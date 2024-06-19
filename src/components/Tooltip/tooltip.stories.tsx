@@ -95,7 +95,7 @@ export const Placement = () => {
 /**
  * ### How to import
  * ~~~js
- * import { Tooltip } from 'eizy-ui-react'
+ * import { Tooltip } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Tooltip> = {

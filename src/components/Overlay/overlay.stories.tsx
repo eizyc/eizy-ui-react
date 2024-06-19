@@ -87,7 +87,7 @@ export const Placement = () => {
 /**
  * ### How to import
  * ~~~js
- * import { Overlay } from 'eizy-ui-react'
+ * import { Overlay } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Overlay> = {

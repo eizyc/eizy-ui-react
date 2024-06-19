@@ -80,7 +80,7 @@ export const AjaxAutoComplete = {
 /**
  * ### How to import
  * ~~~js
- * import { AutoComplete } from 'eizy-ui-react'
+ * import { AutoComplete } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof AutoComplete> = {

@@ -69,7 +69,7 @@ export const WithDrag: Story =  {
 /**
  * ### How to import
  * ~~~js
- * import { Upload } from 'eizy-ui-react'
+ * import { Upload } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Upload> = {

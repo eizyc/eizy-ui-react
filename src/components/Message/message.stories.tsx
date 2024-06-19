@@ -39,7 +39,7 @@ export const App: React.FC = () => (
 /**
  * ### How to import
  * ~~~js
- * import { Message } from 'eizy-ui-react'
+ * import { Message } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Message> = {

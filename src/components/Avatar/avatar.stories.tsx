@@ -70,7 +70,7 @@ export const WithAvatarGroup = {
 /**
  * ### How to import
  * ~~~js
- * import { Avatar } from 'eizy-ui-react'
+ * import { Avatar } from '@eizyui/eizy-ui-react'
  * ~~~
  */
 const meta:Meta<typeof Avatar> = {
