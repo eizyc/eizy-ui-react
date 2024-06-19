@@ -1,0 +1,14 @@
+# Changelog
+
+{{#each releases}}
+  ## **{{title}}** - {{isoDate}}
+
+  {{#commit-list commits heading='### 🎉 New Features' subject='feat[\[\(]?.*[\]\)]?:'}}
+    - {{subject}} [`{{shorthash}}`]({{href}})
+  {{/commit-list}}
+
+  {{#commit-list commits heading='### 🐛 Bug Fixs' subject='fix[\[\(]?.*[\]\)]?:'}}
+    - {{subject}} [`{{shorthash}}`]({{href}})
+  {{/commit-list}}
+
+{{/each}}
