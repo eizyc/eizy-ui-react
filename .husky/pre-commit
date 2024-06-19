@@ -1,1 +1,1 @@
-npm run test:nowatch && npm run lint
+npm run test:nowatch && npm run lint && npm run typeCheck

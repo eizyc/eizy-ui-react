@@ -1,10 +1,17 @@
 {
-  "name": "eizy-ui-react",
+  "name": "@eizyui/eizy-ui-react",
   "version": "0.1.0",
-  "private": true,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "_unpkg": true,
+  "unpkgFiles": [
+    "dist/index.css",
+    "dist/umd/*.js"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -33,9 +40,12 @@
     "test hooks": "npm run test src/utils/hooks/test",
     "clean": "rimraf ./dist",
     "lint": "eslint --ext js,ts,tsx src",
-    "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "sass ./src/styles/index.scss ./dist/index.css",
-    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:umd": "webpack --config webpack.umd.config",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:umd && npm run build-css",
+    "typeCheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "eslintConfig": {
@@ -75,6 +85,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@types/react-transition-group": "^4.4.10",
+    "babel-loader": "^9.1.3",
     "chalk": "^5.3.0",
     "cross-env": "^7.0.3",
     "eslint-plugin-storybook": "^0.6.15",
@@ -89,8 +100,10 @@
     "rimraf": "^5.0.7",
     "sass": "^1.69.5",
     "storybook": "^7.6.8",
+    "ts-loader": "^9.5.1",
     "typescript": "^4.9.5",
-    "webpack": "^5.89.0"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "jest": {
     "transformIgnorePatterns": [

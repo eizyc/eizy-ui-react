@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/esm",
+    "module": "esnext",
+    "target": "es6",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/setupTests.ts",
+  ],
+}
