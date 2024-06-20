@@ -1,0 +1,74 @@
+@use "sass:math";
+@import '../../styles/variables';
+
+$prefix-tour: #{$prefix}-tour;
+$prefix-overlay: #{$prefix}-overlay;
+
+.#{$prefix-tour} {
+  color: $tour-color;
+  max-width: $tour-max-width;
+  .#{$prefix-overlay} {
+    &-inner {
+      padding: $tour-inner-padding;
+      border-radius: $tour-inner-border-radius;
+      box-shadow: $tour-inner-box-shadow;
+      background: $tour-bg;
+      min-width: $tour-inner-min-width;
+      word-wrap: break-word;
+    }
+    &-arrow{
+      &::before{
+        background: $tour-bg;
+      }
+    }
+  }
+}
+
+.#{$prefix-tour} {
+  z-index:1000;
+  &-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    border-style: solid;
+    box-sizing: border-box;
+    border-color: rgba(0, 0, 0, 0.6);
+    border-width: 0;
+
+    transition: all .2s ease-in-out;
+  }
+  &-inner {
+    padding: 8px;
+  }
+  &-content {
+    width: 100%;
+
+    .back {
+        margin-right: 12px;
+        min-width: 80px;
+    }
+
+    .forward {
+        min-width: 80px;
+    }
+  }
+  &-title {
+    display: block;
+    font-weight: 600;
+  }
+  &-description {
+    display: block;
+  }
+  &-operation {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+}

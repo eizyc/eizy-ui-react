@@ -538,7 +538,16 @@ $message-notice-gap:                     $margin-xs !default;
 
 $message-notice-icon-margin-right:       $margin-xs !default;
 
+// Tour
 
+$tour-bg:                             $white !default;
+$tour-color:                          $color-text !default;
+$tour-max-width:                      200px !default;
+
+$tour-inner-min-width:                30px !default;
+$tour-inner-padding:                  6px 8px !default;
+$tour-inner-border-radius:            4px !default;
+$tour-inner-box-shadow:               $box-shadow-sm !default;
 
 
 

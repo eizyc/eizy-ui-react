@@ -14,6 +14,7 @@ Support Components:
 - Switcher
 - Tag
 - Tooltip
+- Tour
 - Upload
 
 
