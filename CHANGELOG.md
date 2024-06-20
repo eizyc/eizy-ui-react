@@ -1,5 +1,11 @@
 # Changelog
 
+## **0.1.1** - 2024-06-20
+
+### 🎉 New Features
+
+- feat(tour): add tour component [`cc002da`](https://github.com/eizyc/eizy-ui-react/commit/cc002da1a8d7750f8f602aa976df33fb865382aa)
+
 ## **0.1.0** - 2024-06-19
 
 ### 🎉 New Features
