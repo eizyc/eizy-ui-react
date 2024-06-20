@@ -1,6 +1,6 @@
 {
   "name": "@eizyui/eizy-ui-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "access": "public"
   },
@@ -47,7 +47,8 @@
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:umd && npm run build-css",
     "typeCheck": "tsc --noEmit",
     "prepare": "husky",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "changelog": "auto-changelog -p",
+    "version":"git tag -a $npm_package_version -m \"Release version $npm_package_version\""
   },
   "eslintConfig": {
     "extends": [
