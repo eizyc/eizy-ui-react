@@ -1,5 +1,98 @@
+@use "sass:math";
 @import '../../styles/variables';
 
-.#{$prefix}-overlay {
+$prefix-overlay: #{$prefix}-overlay;
 
+
+.#{$prefix-overlay} {
+  &-arrow{
+    position: absolute;
+    overflow: hidden;
+    width: $overlay-arrow-size * 2;
+    height: $overlay-arrow-size;
+    &::before{
+      content: '';
+      clip-path: polygon(0 110%, 20% 65%, 40% 10%,48% 0, 52% 0, 60% 10%, 80% 65%, 100% 110%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &::after{
+      content: '';
+    }
+  }
+}
+
+.#{$prefix-overlay}{
+  &-placement {
+    &-top, &-topLeft, &-topRight {
+      .#{$prefix-overlay}-arrow{
+        transform: rotate(180deg);
+        bottom: -$overlay-arrow-size;
+      }
+    }
+    &-bottom, &-bottomLeft, &-bottomRight {
+      .#{$prefix-overlay}-arrow{
+        top: -$overlay-arrow-size;
+      }
+    }
+    &-left, &-leftBottom, &-leftTop {
+      .#{$prefix-overlay}-arrow{
+        transform: rotate(90deg);
+        right: -$overlay-arrow-size * 1.5;
+      }
+    }
+    &-right, &-rightBottom, &-rightTop {
+      .#{$prefix-overlay}-arrow{
+        transform: rotate(-90deg);
+        left: -$overlay-arrow-size * 1.5;
+      }
+    }
+    &-topLeft, &-bottomLeft {
+      .#{$prefix-overlay}-arrow{
+        left: $overlay-arrow-offset-horizontal;
+      }
+    }
+    &-topRight, &-bottomRight {
+      .#{$prefix-overlay}-arrow{
+        right: $overlay-arrow-offset-horizontal;
+      }
+    }
+    &-rightTop, &-leftTop {
+      .#{$prefix-overlay}-arrow{
+        top: $overlay-arrow-offset-vertical + math.div($overlay-arrow-size, 2);
+      }
+    }
+    &-rightBottom, &-leftBottom {
+      .#{$prefix-overlay}-arrow{
+        bottom: $overlay-arrow-offset-vertical + math.div($overlay-arrow-size, 2);
+      }
+    }
+    &-bottom {
+      .#{$prefix-overlay}-arrow{
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &-top{
+      .#{$prefix-overlay}-arrow{
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+    &-left{
+      .#{$prefix-overlay}-arrow{
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+    &-right{
+      .#{$prefix-overlay}-arrow{
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+      }
+    }
+  }
 }

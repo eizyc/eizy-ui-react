@@ -18,6 +18,8 @@ export interface PopupProps extends Omit<HTMLAttributes<HTMLDivElement>, 'defaul
     container?: HTMLElement | (() => HTMLElement);
     placement?: PlacementType;
     autoAdjustOverflow?: boolean;
+    maskStyle?: CSSProperties;
+    maskClassName?: string;
     onVisibleChange?: (visible: boolean) => void;
     postPosition?: placementConfig['postPosition'];
     boforeAutoAdjust?: placementConfig['boforeAutoAdjust'];
@@ -29,7 +31,7 @@ const initStyle:CSSProperties = {
 }
 
 export const Popup: FC<PropsWithChildren<PopupProps>> = (props) => {
-    const { className, style, mask, children, target, container, defaultValue, autoAdjustOverflow, placement, value: pValue, onVisibleChange, postPosition, boforeAutoAdjust, afterAutoAdjust, ...restProps } = props as Required<PropsWithChildren<PopupProps>>
+    const { className, style, maskStyle, mask, maskClassName, children, target, container, defaultValue, autoAdjustOverflow, placement, value: pValue, onVisibleChange, postPosition, boforeAutoAdjust, afterAutoAdjust, ...restProps } = props as Required<PropsWithChildren<PopupProps>>
     const popupRef = useRef<any>(null);
     const [positionStyle, setPositionStyle] = useState<CSSProperties>(initStyle);
     const [ value, setValue ] = useMergedState<boolean>(false, {
@@ -43,6 +45,8 @@ export const Popup: FC<PropsWithChildren<PopupProps>> = (props) => {
         setPositionStyle(initStyle);
       }
     }, [value])
+
+    const maskClasses = classnames(`${prefixCls}-mask`, maskClassName)
 
     const containerElement = useMemo<HTMLElement>(()=>{
       return typeof container === 'function' ? container() : container;
@@ -72,7 +76,7 @@ export const Popup: FC<PropsWithChildren<PopupProps>> = (props) => {
   
     useListener(window, 'keydown', handleKeyDown, value);
 
-    // 弹窗挂载，第一次 mount node=真实dom，卸载的时候 node=null
+    // first mount node=real dom，when unmount node=null
     const popupRefCallback = useCallback( (node: HTMLBaseElement) => {
       popupRef.current = node;
       if (node && target) {
@@ -105,7 +109,7 @@ export const Popup: FC<PropsWithChildren<PopupProps>> = (props) => {
     if (value) {
       return createPortal(
       <div >
-        {mask ? <div className={`${prefixCls}-mask`}/> : null}
+        {mask ? <div className={maskClasses} style={maskStyle}/> : null}
         {newChildren}
       </div>, containerElement);
     } else {
