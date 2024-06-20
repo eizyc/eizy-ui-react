@@ -1,4 +1,17 @@
 # eizy-ui-react
+
+[![CI status][github-action-image]][github-action-url]
+[![Latest npm version][version-img]][npm-url]
+[![NPM downloads][download-image]][npm-url]
+
+
+
+[version-img]: https://img.shields.io/npm/v/@eizyui/eizy-ui-react.svg
+[npm-url]: https://www.npmjs.com/package/@eizyui/eizy-ui-react
+[download-image]: https://img.shields.io/npm/dm/@eizyui/eizy-ui-react.svg?style=flat-square
+[github-action-image]: https://github.com/eizyc/eizy-ui-react/workflows/Deployment/badge.svg
+[github-action-url]: https://github.com/eizyc/eizy-ui-react/actions?query=workflow%3A%22Deployment%22
+
 Support Components:
 - AutoComplete
 - Avatar
